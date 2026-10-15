@@ -117,59 +117,9 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div className="w-full bg-[#F5F7FA]">
+    <div className="w-full bg-[#F5F7FA] min-h-screen">
       
-      {/* 1. Hero Section matching site design language */}
-      <section className="relative min-h-[420px] lg:min-h-[480px] flex items-center bg-slate-950 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-1600.webp"
-            alt="S. Mall Commercial Concourse"
-            className="w-full h-full object-cover opacity-35"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/50" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 w-full">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black bg-[#F9B00C] text-[#1F2937] shadow-sm uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#1F2937]" />
-              <span>S. Mall Edakkara • Landmark Commercial Hub</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-              Commercial Real Estate & <br />
-              <span className="text-[#F9B00C]">Retail Inventory.</span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
-              Explore verified commercial ownership opportunities, prime retail showrooms, high-footfall concourse shops, and flexible commercial leasing inventory positioned directly on the State Highway (Calicut-Ooty CNG Road) with Malayora Highway corner visibility.
-            </p>
-
-            {/* Key Statistics Strip */}
-            <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-white">
-              <div className="bg-white/10 backdrop-blur-xs p-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-black text-[#F9B00C]">19,000+</div>
-                <div className="text-[11px] text-slate-300 font-medium">Sq. Ft. Footprint</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-xs p-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-black text-white">Dual Highway</div>
-                <div className="text-[11px] text-slate-300 font-medium">State & Hill Road</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-xs p-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-black text-[#F9B00C]">100% Clear</div>
-                <div className="text-[11px] text-slate-300 font-medium">Titles & Verified Units</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-xs p-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-black text-white">3 Levels</div>
-                <div className="text-[11px] text-slate-300 font-medium">Ground, 1st & 2nd Floor</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Interactive Category Tabs Switcher */}
+      {/* 1. Interactive Category Tabs Switcher */}
       <section className="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
