@@ -203,7 +203,7 @@ export default function PropertySection({
     const text = encodeURIComponent(
       `Hello Small Mall Management, I would like to enquire about: ${property.name} (Ref ID: ${property.id}) at ${getBranchName(property.branchId)}. Price: ${property.priceLabel}. Please share further details and site viewing options.`
     );
-    window.open(`https://wa.me/18005550199?text=${text}`, '_blank');
+    window.open(`https://wa.me/919447175232?text=${text}`, '_blank');
   };
 
   const handleContactForm = (property) => {
@@ -379,14 +379,14 @@ export default function PropertySection({
               {/* Price Range Filter */}
               <div>
                 <label className="block text-xs font-bold text-slate-600 mb-1.5">
-                  Price / Budget ($)
+                  Price / Budget (₹)
                 </label>
                 <div className="flex items-center gap-1.5">
                   <input
                     type="number"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
-                    placeholder="Min $"
+                    placeholder="Min ₹"
                     className="w-1/2 px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:ring-2 focus:ring-[#0E5EC8]"
                   />
                   <span className="text-slate-400 text-xs">-</span>
@@ -394,7 +394,7 @@ export default function PropertySection({
                     type="number"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
-                    placeholder="Max $"
+                    placeholder="Max ₹"
                     className="w-1/2 px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:ring-2 focus:ring-[#0E5EC8]"
                   />
                 </div>
@@ -536,14 +536,14 @@ export default function PropertySection({
                         {!isSale && property.securityDeposit && (
                           <div className="text-xs font-medium text-[#64748B] mt-1 flex items-center gap-1">
                             <span>Security Deposit:</span>
-                            <strong className="text-slate-700">${property.securityDeposit.toLocaleString()}</strong>
+                            <strong className="text-slate-700">₹{property.securityDeposit.toLocaleString()}</strong>
                             <span className="text-slate-400">• refundable</span>
                           </div>
                         )}
 
                         {isSale && (
                           <div className="text-xs font-medium text-[#64748B] mt-1">
-                            ${Math.round(property.price / property.area)} / sq ft • Freehold Title
+                            ₹{Math.round(property.price / property.area).toLocaleString()} / sq ft • Freehold Title
                           </div>
                         )}
                       </div>
@@ -690,12 +690,12 @@ export default function PropertySection({
                     </div>
                     {selectedProperty.category === "rent" && selectedProperty.securityDeposit && (
                       <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                        Security Deposit: ${selectedProperty.securityDeposit.toLocaleString()}
+                        Security Deposit: ₹{selectedProperty.securityDeposit.toLocaleString()}
                       </div>
                     )}
                     {selectedProperty.category === "sale" && (
                       <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                        ${Math.round(selectedProperty.price / selectedProperty.area)} / sq ft • Freehold
+                        ₹{Math.round(selectedProperty.price / selectedProperty.area).toLocaleString()} / sq ft • Freehold
                       </div>
                     )}
                   </div>
