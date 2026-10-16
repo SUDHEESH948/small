@@ -178,16 +178,15 @@ export default function HomeBranches() {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = current.fallback;
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                
-                <div className="absolute bottom-4 left-4 right-4 text-white pointer-events-none">
+
+                <div className="absolute bottom-3 left-3 right-3 text-white bg-slate-950/75 backdrop-blur-md p-3 rounded-xl border border-white/15">
                   <div className="flex items-center gap-2 text-xs text-[#F9B00C] font-bold">
-                    <MapPin className="w-4 h-4" />
+                    <MapPin className="w-3.5 h-3.5" />
                     <span>S Mall, Main Road Edakkara, Malappuram</span>
                   </div>
-                  <div className="text-sm sm:text-base font-bold text-slate-100">
+                  <div className="text-xs sm:text-sm font-bold text-slate-100 mt-0.5">
                     State Highway (CNG Road) & Malayora Highway Junction
                   </div>
                 </div>

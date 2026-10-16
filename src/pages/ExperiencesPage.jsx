@@ -30,20 +30,19 @@ export default function ExperiencesPage() {
       <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/entertainment.webp"
+            src={heroImg}
             alt="S mall Experiences"
-            className="w-full h-full object-cover opacity-45"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/40" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 w-full">
           <div className="max-w-2xl space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               Experiences <br />
-              <span className="text-[#F9B00C]">beyond shopping.</span>
+              <span className="text-[#F9B00C] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">beyond shopping.</span>
             </h1>
-            <p className="text-sm sm:text-lg text-slate-300 max-w-lg leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-white font-medium max-w-lg leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
               Movies, dining, entertainment, events and more — there's always something to look forward to at S mall.
             </p>
           </div>
@@ -76,11 +75,10 @@ export default function ExperiencesPage() {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = "/images/magicframes.jpeg";
               }}
-              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-            <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 w-full">
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/15">
               <div className="space-y-2">
                 <span className="bg-[#F9B00C] text-[#1F2937] text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md inline-block">
                   Now Showing & Premieres
@@ -314,16 +312,15 @@ export default function ExperiencesPage() {
               e.currentTarget.onerror = null;
               e.currentTarget.src = "/images/hroic2.jpeg";
             }}
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-slate-950/70" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-4">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
             Make more memories here.
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto leading-relaxed">
             From movie nights to family outings, S mall is your destination for moments that matter.
           </p>
           <div className="pt-2">

@@ -86,12 +86,10 @@ export default function HomeExperiences() {
               e.currentTarget.onerror = null;
               e.currentTarget.src = "/images/magicframes.jpeg";
             }}
-            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/40 to-transparent hidden sm:block" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full">
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/15">
             <div className="space-y-3 max-w-2xl">
               <span className="bg-[#F9B00C] text-slate-950 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-md inline-block shadow-sm">
                 Now Showing & Premieres

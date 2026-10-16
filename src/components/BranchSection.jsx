@@ -131,9 +131,8 @@ export default function BranchSection({
                   alt={activeBranch.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
-                
-                <div className="absolute bottom-5 left-5 right-5 text-white">
+
+                <div className="absolute bottom-4 left-4 right-4 text-white bg-slate-950/75 backdrop-blur-md p-4 rounded-2xl border border-white/15">
                   <span className="text-xs font-bold text-[#F9B00C] uppercase tracking-wider block">
                     {activeBranch.city}
                   </span>
@@ -334,7 +333,6 @@ export default function BranchSection({
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
 
                     {/* Yellow pill showing available units calculated from static data */}
                     <div className="absolute top-4 right-4">
@@ -344,12 +342,12 @@ export default function BranchSection({
                       </span>
                     </div>
 
-                    {/* Branch Name & Tagline overlaid on dark bottom gradient */}
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                    {/* Branch Name & Tagline */}
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white bg-slate-950/75 backdrop-blur-md p-3.5 rounded-xl border border-white/15">
                       <span className="text-[11px] font-bold text-[#F9B00C] uppercase tracking-wider block">
                         {branch.city}
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-blue-100 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
                         {branch.name}
                       </h3>
                       <p className="text-xs text-slate-300 line-clamp-1 mt-0.5">

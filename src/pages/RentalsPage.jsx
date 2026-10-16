@@ -106,20 +106,19 @@ export default function RentalsPage() {
       <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-1600.webp"
+            src="/images/heroimage.png"
             alt="S mall Concourse"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/40" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 w-full">
           <div className="max-w-2xl space-y-5">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               Grow together <br />
-              <span className="text-white">at S mall.</span>
+              <span className="text-[#F9B00C] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">at S mall.</span>
             </h1>
-            <p className="text-sm sm:text-lg text-slate-300 max-w-lg leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-white font-medium max-w-lg leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
               Premium retail and entertainment spaces for forward-looking businesses.
             </p>
             <div className="pt-2">
@@ -250,14 +249,13 @@ export default function RentalsPage() {
       <section className="relative py-20 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/shopping.webp"
+            src="/images/hero.jpeg"
             alt="S mall storefronts"
-            className="w-full h-full object-cover opacity-25"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-slate-950/70" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-5">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-5">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Let's build something great together.
           </h2>

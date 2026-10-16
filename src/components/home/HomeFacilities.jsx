@@ -139,7 +139,6 @@ export default function HomeFacilities() {
                       }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent pointer-events-none" />
 
                     {/* Top Floating Badge */}
                     <div className="absolute top-4 right-4">
@@ -149,15 +148,15 @@ export default function HomeFacilities() {
                     </div>
 
                     {/* Bottom Floating Identity & Title */}
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3.5">
-                      <div className="h-12 w-12 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shrink-0">
-                        <Icon className="w-6 h-6 text-[#F9B00C]" />
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center gap-3.5 bg-slate-950/75 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+                      <div className="h-11 w-11 rounded-xl bg-white/15 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-[#F9B00C]" />
                       </div>
                       <div className="text-white">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-blue-200 block">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#F9B00C] block">
                           {facility.capacity}
                         </span>
-                        <h3 className="text-lg sm:text-xl font-black tracking-tight drop-shadow-xs">
+                        <h3 className="text-base sm:text-lg font-black tracking-tight drop-shadow-xs">
                           {facility.title}
                         </h3>
                       </div>

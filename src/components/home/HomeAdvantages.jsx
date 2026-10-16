@@ -303,8 +303,6 @@ export default function HomeAdvantages() {
                 />
               </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white pointer-events-none">
                 <span className="bg-[#F9B00C] text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                   {current.badge}
@@ -423,13 +421,12 @@ export default function HomeAdvantages() {
                   }}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
                 <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-white/95 backdrop-blur-xs text-[#0E5EC8] px-2.5 py-1 rounded-md shadow-xs">
                   {item.badge}
                 </span>
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white bg-slate-950/75 backdrop-blur-md px-3 py-2 rounded-xl border border-white/15">
                   <span className="text-xs font-bold line-clamp-1">
                     {item.title}
                   </span>
