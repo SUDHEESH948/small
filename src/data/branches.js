@@ -9,11 +9,11 @@ export const branches = [
     whatsapp: "+919447175232",
     email: "smallmalledakkara@gmail.com",
     hours: "Mon – Sun: 09:00 AM – 10:00 PM",
-    coverImage: "/images/hero-1600.webp",
+    coverImage: "/images/heroimage.png",
     gallery: [
-      "/images/hero-1600.webp",
-      "/images/shopping.webp",
-      "/images/dining.webp"
+      "/images/heroimage.png",
+      "/images/hero.jpeg",
+      "/images/hroic2.jpeg"
     ],
     mapLink: "https://maps.google.com/?q=S+Mall+Main+Road+Edakkara+CNG+Road",
     description: "S. Mall is a landmark commercial and retail complex prominently located on the Calicut-Ooty Main Road (CNG Road / Calicut Nilambur Gudalur Road) at Edakkara. Featuring direct front-side access from the State Highway and side-road connectivity via the Malayora Highway (Hill Highway), providing exceptional daily footfall and interstate commuter visibility.",

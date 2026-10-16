@@ -11,6 +11,13 @@ import {
   Eye,
 } from "lucide-react";
 
+import magicFramesImg from "../../assets/magicframes.jpeg";
+import mayoodiyaImg from "../../assets/mayoodiyajewellery.jpeg";
+import boutiqueImg from "../../assets/botique.jpeg";
+import lenoraImg from "../../assets/lenorafancy.jpeg";
+import surprezToysImg from "../../assets/surpreztoys.jpeg";
+import escalaterImg from "../../assets/escalater.jpeg";
+
 const HIGHLIGHTS = [
   {
     id: "shopping",
@@ -18,27 +25,26 @@ const HIGHLIGHTS = [
     pillar: "Shop",
     title: "World of Retail & Everyday Essentials",
     icon: ShoppingBag,
-    image:
-      "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1200&q=80",
-    fallback: "/images/shopping.webp",
+    image: boutiqueImg,
+    fallback: "/images/botique.jpeg",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/shopping-1.webp",
-        alt: "Shopping & Retail preview 1 - Retail Concourse",
-        label: "Retail Concourse",
+        src: boutiqueImg,
+        fallback: "/images/botique.jpeg",
+        alt: "Shopping & Retail preview 1 - Fashion Boutique",
+        label: "Boutique",
       },
       {
-        src: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/shopping-2.webp",
-        alt: "Shopping & Retail preview 2 - Brand Outlets",
-        label: "Brand Outlets",
+        src: lenoraImg,
+        fallback: "/images/lenorafancy.jpeg",
+        alt: "Shopping & Retail preview 2 - Lenora Fancy & Footwear",
+        label: "Lenora Fancy",
       },
       {
-        src: "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/shopping-3.webp",
-        alt: "Shopping & Retail preview 3 - Mall Walkways",
-        label: "Mall Walkways",
+        src: escalaterImg,
+        fallback: "/images/escalater.jpeg",
+        alt: "Shopping & Retail preview 3 - Central Escalator Concourse",
+        label: "Central Atrium",
       },
     ],
     features: [
@@ -55,33 +61,32 @@ const HIGHLIGHTS = [
     pillar: "Style",
     title: "Trendsetting Fashion & Jewellery Concourse",
     icon: Sparkles,
-    image:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
-    fallback: "/images/about.webp",
+    image: mayoodiyaImg,
+    fallback: "/images/mayoodiyajewellery.jpeg",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/fashion-1.webp",
-        alt: "Fashion & Lifestyle preview 1 - Boutique & Apparel",
-        label: "Boutiques",
+        src: mayoodiyaImg,
+        fallback: "/images/mayoodiyajewellery.jpeg",
+        alt: "Fashion & Lifestyle preview 1 - Mayoodiya Jewellery",
+        label: "Mayoodiya Jewellery",
       },
       {
-        src: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/fashion-2.webp",
-        alt: "Fashion & Lifestyle preview 2 - Jewellery Concourse",
-        label: "Jewellery Concourse",
+        src: boutiqueImg,
+        fallback: "/images/botique.jpeg",
+        alt: "Fashion & Lifestyle preview 2 - Designer Boutique",
+        label: "Fashion Boutique",
       },
       {
-        src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/fashion-3.webp",
-        alt: "Fashion & Lifestyle preview 3 - Salon & Grooming",
-        label: "Salon & Styling",
+        src: lenoraImg,
+        fallback: "/images/lenorafancy.jpeg",
+        alt: "Fashion & Lifestyle preview 3 - Lenora Fancy Accessories",
+        label: "Lenora Fancy",
       },
     ],
     features: [
-      "Dedicated ground-floor Jewellery Concourse",
+      "Dedicated ground-floor Mayoodiya Jewellery Concourse",
       "First-floor designer boutiques & ethnic fashion",
-      "Premium cosmetics, salon & personal styling",
+      "Lenora fancy novelty gifts & personal styling",
     ],
     actionText: "View Fashion Stores",
     actionLink: "/explore",
@@ -129,21 +134,20 @@ const HIGHLIGHTS = [
     pillar: "Play",
     title: "Blockbuster Movies & Joyful Outings",
     icon: Gamepad2,
-    image:
-      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
-    fallback: "/images/entertainment.webp",
+    image: magicFramesImg,
+    fallback: "/images/magicframes.jpeg",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/family-1.webp",
+        src: magicFramesImg,
+        fallback: "/images/magicframes.jpeg",
         alt: "Family Experiences preview 1 - Magic Frames Cinemas",
         label: "Magic Frames",
       },
       {
-        src: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
-        fallback: "/images/family-2.webp",
-        alt: "Family Experiences preview 2 - Kids Toys & Fun",
-        label: "Kids & Toys",
+        src: surprezToysImg,
+        fallback: "/images/surpreztoys.jpeg",
+        alt: "Family Experiences preview 2 - Surprez Toys Store",
+        label: "Surprez Toys",
       },
       {
         src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
@@ -154,7 +158,7 @@ const HIGHLIGHTS = [
     ],
     features: [
       "Magic Frames Multiplex Cinemas with immersive sound",
-      "Delightful kids' toy store & gift boutique",
+      "Surprez Toys store with games, puzzles & plush gifts",
       "Upcoming family entertainment & gaming zone",
     ],
     actionText: "Explore Cinema & Fun",

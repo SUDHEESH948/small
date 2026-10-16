@@ -27,6 +27,9 @@ export default function HomePage() {
 
       {/* 6. Location & Accessibility (State Highway & Malayora Highway Junction) */}
       <HomeBranches />
+
+      {/* 7. Plan Your Visit CTA */}
+      <HomeContact />
     </main>
   );
 }

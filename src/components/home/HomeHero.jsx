@@ -1,240 +1,261 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ArrowRight,
-  Clock,
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Sparkles, 
+  ArrowRight, 
+  Clock, 
+  MapPin, 
   Film,
+  ShoppingBag,
   Utensils,
+  Car,
+  Layers
 } from "lucide-react";
+
+import heroImagePng from "../../assets/homepage/heroimage.png";
+import heroJpeg from "../../assets/homepage/hero.jpeg";
+import hroic2Jpeg from "../../assets/homepage/hroic2.jpeg";
 
 const HERO_SLIDES = [
   {
-    url: "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1920&q=80",
-    fallback: "/images/hero-1600.webp",
-    badge: "Welcome to S Mall",
-    alt: "Mall interior",
+    url: heroImagePng,
+    fallback: "/images/heroimage.png",
+    badge: "Edakkara's Landmark Mall",
+    tagline: "Grand Architecture & Entrance",
+    alt: "S Mall Edakkara Flagship Exterior",
   },
   {
-    url: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1920&q=80",
-    fallback: "/images/shopping.webp",
-    badge: "Shopping",
-    alt: "Shopping area",
+    url: heroJpeg,
+    fallback: "/images/hero.jpeg",
+    badge: "Shopping & Lifestyle Hub",
+    tagline: "Multi-Tier Shopping & Experience Concourse",
+    alt: "S Mall Concourse & Shopping",
   },
   {
-    url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80",
-    fallback: "/images/dining.webp",
-    badge: "Food & Dining",
-    alt: "Restaurant and dining area",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80",
-    fallback: "/images/entertainment.webp",
-    badge: "Movies & Entertainment",
-    alt: "Cinema interior",
+    url: hroic2Jpeg,
+    fallback: "/images/hroic2.jpeg",
+    badge: "Dual Highway Frontage",
+    tagline: "State Highway & Malayora Highway Confluence",
+    alt: "S Mall Highway Access",
   },
 ];
 
 export default function HomeHero() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((index) => (index + 1) % HERO_SLIDES.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_SLIDES.length);
     }, 6000);
 
     return () => clearInterval(timer);
   }, []);
 
   const handlePrev = () => {
-    setCurrentIndex((index) =>
-      index === 0 ? HERO_SLIDES.length - 1 : index - 1,
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? HERO_SLIDES.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((index) => (index + 1) % HERO_SLIDES.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_SLIDES.length);
   };
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <section className="relative flex min-h-[85vh] sm:min-h-screen w-full flex-col justify-between overflow-hidden bg-slate-900">
-      {/* Background slideshow */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-[92vh] sm:min-h-screen w-full overflow-hidden bg-slate-950 flex flex-col justify-between">
+      {/* Background Slides with AnimatePresence */}
+      <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <img
               src={HERO_SLIDES[currentIndex].url}
               alt={HERO_SLIDES[currentIndex].alt}
-              onError={(event) => {
-                event.currentTarget.onerror = null;
-                event.currentTarget.src = HERO_SLIDES[currentIndex].fallback;
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = HERO_SLIDES[currentIndex].fallback;
               }}
               className="h-full w-full object-cover"
             />
-
-            {/* Soft overlays for readable text */}
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+            {/* Ambient Overlays for superior contrast and readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 my-auto w-full px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-36 lg:px-12">
-        <div className="mx-auto w-full max-w-7xl">
-          <div className="max-w-3xl space-y-6 sm:space-y-7">
-            {/* Simple location label */}
-            <motion.div
-              key={`badge-${currentIndex}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/20 px-4 py-2 text-sm text-white backdrop-blur-sm"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#F9B00C]" />
-              <span>{HERO_SLIDES[currentIndex].badge}</span>
-              <span className="text-white/50">·</span>
-              <span className="text-white/80">Edakkara</span>
-            </motion.div>
+      {/* Decorative Accent Glow */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#0E5EC8]/20 rounded-full blur-3xl pointer-events-none z-10" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#F9B00C]/15 rounded-full blur-3xl pointer-events-none z-10" />
 
-            {/* Main heading */}
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-                Welcome to
-                <br />
-                <span className="text-[#F9B00C]">S Mall.</span>
-              </h1>
-            </motion.div>
+      {/* Main Hero Content */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-12 w-full my-auto">
+        <div className="max-w-3xl space-y-6 sm:space-y-8">
+          
+          {/* Top Pill / Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md border border-white/15 shadow-sm"
+          >
+            <span className="flex h-2 w-2 rounded-full bg-[#F9B00C] animate-pulse" />
+            <span className="text-[#F9B00C] font-black uppercase tracking-wider text-[11px]">
+              {HERO_SLIDES[currentIndex].badge}
+            </span>
+            <span className="text-white/40">|</span>
+            <span className="text-slate-200">Main Road Edakkara</span>
+          </motion.div>
 
-            {/* Natural, straightforward description */}
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-xl text-base font-normal leading-relaxed text-white/90 sm:text-lg"
-            >
-              Shop, enjoy a meal, watch a movie, and spend time with family at S
-              Mall, Edakkara.
-            </motion.p>
+          {/* Primary Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="space-y-2"
+          >
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
+              Discover More <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F9B00C] via-amber-300 to-yellow-400">
+                at S Mall.
+              </span>
+            </h1>
+          </motion.div>
 
-            {/* Action buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-3 pt-1"
-            >
-              <button
-                type="button"
-                onClick={() => scrollToSection("mall-highlights")}
-                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#F9B00C] px-6 py-3.5 text-sm font-semibold text-slate-950 transition-colors hover:bg-[#e9a60b] active:scale-[0.98]"
-              >
-                <span>Explore S Mall</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
+          {/* Supporting Text */}
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-base sm:text-xl text-slate-200 leading-relaxed font-normal max-w-2xl"
+          >
+            Shopping, entertainment, dining, and memorable experiences — all in one premier destination in Edakkara.
+          </motion.p>
 
-              <button
-                type="button"
-                onClick={() => scrollToSection("plan-your-visit")}
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/50 bg-black/20 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/15 active:scale-[0.98]"
-              >
-                <Clock className="h-4 w-4" />
-                <span>Plan Your Visit</span>
-              </button>
-            </motion.div>
-          </div>
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-4 pt-2"
+          >
+            <button
+              onClick={() => scrollToSection("mall-highlights")}
+              className="inline-flex items-center justify-center gap-2.5 bg-[#F9B00C] hover:bg-[#e5a007] text-slate-950 font-black px-7 py-4 rounded-xl text-sm uppercase tracking-wider shadow-lg shadow-amber-500/20 hover:shadow-xl hover:shadow-amber-500/30 active:scale-95 transition-all group cursor-pointer"
+            >
+              <span>Explore the Mall</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
+
+            <button
+              onClick={() => scrollToSection("plan-your-visit")}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 text-white font-bold px-7 py-4 rounded-xl text-sm tracking-wide border border-white/20 backdrop-blur-md hover:border-white/40 active:scale-95 transition-all cursor-pointer"
+            >
+              <Clock className="w-4 h-4 text-[#F9B00C]" />
+              <span>Plan Your Visit</span>
+            </button>
+          </motion.div>
+
         </div>
       </div>
 
-      {/* Simple information bar */}
-      <div className="relative z-10 w-full border-t border-white/15 bg-black/40 py-4 backdrop-blur-sm sm:py-5">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-5 text-white sm:grid-cols-3 sm:px-8 lg:px-12">
+      {/* Quick Stats / Highlights Bar */}
+      <div className="relative z-20 w-full border-t border-white/10 bg-slate-950/70 backdrop-blur-md py-4 sm:py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
+          
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-              <Film className="h-5 w-5 text-[#F9B00C]" />
+            <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F9B00C] shrink-0">
+              <Layers className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-white/65">Cinema</p>
-              <p className="text-sm font-semibold">Magic Frames Multiplex</p>
+              <div className="text-xs text-slate-400 font-medium">Retail Spread</div>
+              <div className="text-sm font-bold text-white">3 Commercial Floors</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-              <Utensils className="h-5 w-5 text-[#F9B00C]" />
+            <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F9B00C] shrink-0">
+              <Film className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-white/65">Food & Dining</p>
-              <p className="text-sm font-semibold">KFC & Food Court</p>
+              <div className="text-xs text-slate-400 font-medium">Cinema Experience</div>
+              <div className="text-sm font-bold text-white">Magic Frames Multiplex</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-              <Clock className="h-5 w-5 text-[#F9B00C]" />
+            <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F9B00C] shrink-0">
+              <Utensils className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-white/65">Opening Hours</p>
-              <p className="text-sm font-semibold">10 AM – 10 PM</p>
+              <div className="text-xs text-slate-400 font-medium">Gastronomy</div>
+              <div className="text-sm font-bold text-white">KFC & Food Court</div>
             </div>
           </div>
+
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F9B00C] shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs text-slate-400 font-medium">Operating Hours</div>
+              <div className="text-sm font-bold text-white">10 AM – 10 PM (Daily)</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Previous and next controls */}
-      <div className="pointer-events-none absolute inset-x-4 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-between sm:flex md:inset-x-8">
+      {/* Navigation Arrows */}
+      <div className="pointer-events-none absolute inset-x-4 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center justify-between md:inset-x-8">
         <button
           type="button"
           onClick={handlePrev}
           aria-label="Previous slide"
-          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-black/25 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-900"
+          className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-slate-950/40 text-white backdrop-blur-md transition-all duration-200 hover:bg-[#F9B00C] hover:text-slate-950 active:scale-90 cursor-pointer"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-6 w-6" />
         </button>
 
         <button
           type="button"
           onClick={handleNext}
           aria-label="Next slide"
-          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-black/25 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-900"
+          className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-slate-950/40 text-white backdrop-blur-md transition-all duration-200 hover:bg-[#F9B00C] hover:text-slate-950 active:scale-90 cursor-pointer"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-6 w-6" />
         </button>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-[190px] left-0 right-0 z-20 flex justify-center gap-2 sm:bottom-[120px]">
-        {HERO_SLIDES.map((slide, index) => (
+      {/* Slide Dot Indicators */}
+      <div className="absolute inset-x-0 bottom-24 z-20 flex items-center justify-center gap-2.5">
+        {HERO_SLIDES.map((_, index) => (
           <button
-            key={slide.badge}
+            key={index}
             type="button"
             onClick={() => setCurrentIndex(index)}
             aria-label={`Go to slide ${index + 1}`}
-            aria-current={index === currentIndex ? "true" : undefined}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`rounded-full transition-all duration-300 cursor-pointer ${
               index === currentIndex
-                ? "w-6 bg-[#F9B00C]"
-                : "w-2 bg-white/60 hover:bg-white"
+                ? "h-2 w-8 bg-[#F9B00C]"
+                : "h-2 w-2 bg-white/40 hover:bg-white"
             }`}
           />
         ))}

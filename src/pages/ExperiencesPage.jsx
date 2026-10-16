@@ -14,6 +14,12 @@ import {
   Tv2
 } from 'lucide-react';
 
+import magicFramesImg from '../assets/magicframes.jpeg';
+import surprezToysImg from '../assets/surpreztoys.jpeg';
+import boutiqueImg from '../assets/botique.jpeg';
+import heroImg from '../assets/homepage/hero.jpeg';
+import hroic2Img from '../assets/homepage/hroic2.jpeg';
+
 export default function ExperiencesPage() {
   const navigate = useNavigate();
 
@@ -64,8 +70,12 @@ export default function ExperiencesPage() {
           {/* Featured Cinema Card */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[360px] sm:min-h-[420px] flex items-end p-6 sm:p-10 group">
             <img
-              src="/images/entertainment-800.webp"
+              src={magicFramesImg}
               alt="Magic Frames Cinemas"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/images/magicframes.jpeg";
+              }}
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
@@ -199,11 +209,19 @@ export default function ExperiencesPage() {
             {/* Toys Store */}
             <div className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-200">
-                <img src="/images/experience.webp" alt="Toys Store" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img 
+                  src={surprezToysImg} 
+                  alt="Surprez Toys Store" 
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/images/surpreztoys.jpeg";
+                  }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Kids & Play</span>
-                <h3 className="text-lg font-black text-slate-900">Toys Store</h3>
+                <h3 className="text-lg font-black text-slate-900">Surprez Toys Store</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   A world of toys, learning puzzles and smiles for little explorers.
                 </p>
@@ -263,13 +281,21 @@ export default function ExperiencesPage() {
             {/* Shopping */}
             <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
-                <img src="/images/shopping-480.webp" alt="Shopping" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img 
+                  src={boutiqueImg} 
+                  alt="Fashion Boutique" 
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/images/botique.jpeg";
+                  }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Fashion & Jewellery</span>
-                <h3 className="text-lg font-black text-slate-900">Shopping</h3>
+                <h3 className="text-lg font-black text-slate-900">Boutique & Fashion</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Fashion, accessories, bridal jewellery, gifts and more from top brands.
+                  Designer ethnic wear, bridal jewels, footwear and accessories from curated labels.
                 </p>
               </div>
             </div>
@@ -282,9 +308,13 @@ export default function ExperiencesPage() {
       <section className="relative py-20 bg-slate-950 overflow-hidden text-center text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-1600.webp"
-            alt="Family outing"
-            className="w-full h-full object-cover opacity-30"
+            src={hroic2Img}
+            alt="S Mall Edakkara"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/images/hroic2.jpeg";
+            }}
+            className="w-full h-full object-cover opacity-35"
           />
           <div className="absolute inset-0 bg-slate-950/70" />
         </div>

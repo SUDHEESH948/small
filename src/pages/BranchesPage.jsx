@@ -17,6 +17,13 @@ import {
 } from 'lucide-react';
 import BranchSection from '../components/BranchSection';
 
+import magicFramesImg from '../assets/magicframes.jpeg';
+import mayoodiyaImg from '../assets/mayoodiyajewellery.jpeg';
+import boutiqueImg from '../assets/botique.jpeg';
+import lenoraImg from '../assets/lenorafancy.jpeg';
+import surprezToysImg from '../assets/surpreztoys.jpeg';
+import heroImagePng from '../assets/homepage/heroimage.png';
+
 export default function BranchesPage() {
   const [searchParams] = useSearchParams();
   const initialBranch = searchParams.get('id');
@@ -33,7 +40,8 @@ export default function BranchesPage() {
       name: 'Magic Frames Cinema',
       tagline: 'Movies, More Than Movies',
       category: 'Entertainment',
-      image: '/images/entertainment.webp',
+      image: magicFramesImg,
+      fallback: '/images/magicframes.jpeg',
       badge: 'Entertainment'
     },
     {
@@ -42,31 +50,44 @@ export default function BranchesPage() {
       tagline: 'Finger Lickin’ Good',
       category: 'Dining',
       image: '/images/dining.webp',
+      fallback: '/images/dining.webp',
       badge: 'Dining'
     },
     {
       id: 'store-3',
-      name: 'Jewellery',
-      tagline: 'Timeless Elegance',
+      name: 'Mayoodiya Jewellery',
+      tagline: 'Timeless Elegance & Bridal Gold',
       category: 'Shopping',
-      image: '/images/shopping.webp',
+      image: mayoodiyaImg,
+      fallback: '/images/mayoodiyajewellery.jpeg',
       badge: 'Shopping'
     },
     {
       id: 'store-4',
-      name: 'Boutique',
-      tagline: 'Fashion for Every You',
+      name: 'Fashion Boutique',
+      tagline: 'Designer Ethnic Wear & Modern Apparel',
       category: 'Shopping',
-      image: '/images/shopping-480.webp',
+      image: boutiqueImg,
+      fallback: '/images/botique.jpeg',
       badge: 'Shopping'
     },
     {
       id: 'store-5',
-      name: 'Toys Store',
-      tagline: 'Fun for Little Explorers',
+      name: 'Surprez Toys',
+      tagline: 'Fun, Learning & Smiles for Kids',
       category: 'Entertainment',
-      image: '/images/experience.webp',
+      image: surprezToysImg,
+      fallback: '/images/surpreztoys.jpeg',
       badge: 'Entertainment'
+    },
+    {
+      id: 'store-lenora',
+      name: 'Lenora Fancy & Footwear',
+      tagline: 'Accessories, Footwear & Novelty Gifts',
+      category: 'Shopping',
+      image: lenoraImg,
+      fallback: '/images/lenorafancy.jpeg',
+      badge: 'Shopping'
     },
     {
       id: 'store-6',
@@ -74,6 +95,7 @@ export default function BranchesPage() {
       tagline: 'Style, Relax, Rejuvenate',
       category: 'Lifestyle',
       image: '/images/about.webp',
+      fallback: '/images/about.webp',
       badge: 'Lifestyle'
     },
     {
@@ -82,14 +104,16 @@ export default function BranchesPage() {
       tagline: 'Fresh Choices, Everyday Needs',
       category: 'Shopping',
       image: '/images/shopping-800.webp',
+      fallback: '/images/shopping-800.webp',
       badge: 'Coming Soon'
     },
     {
       id: 'store-8',
-      name: 'Gaming (Coming Soon)',
+      name: 'Gaming Zone (Coming Soon)',
       tagline: 'Play, Connect, Enjoy',
       category: 'Entertainment',
       image: '/images/entertainment-800.webp',
+      fallback: '/images/entertainment-800.webp',
       badge: 'Coming Soon'
     },
     {
@@ -98,6 +122,7 @@ export default function BranchesPage() {
       tagline: 'A World of Flavours',
       category: 'Dining',
       image: '/images/dining-800.webp',
+      fallback: '/images/dining-800.webp',
       badge: 'Coming Soon'
     }
   ];
@@ -110,13 +135,14 @@ export default function BranchesPage() {
   const floorDirectory = {
     'Ground Floor': [
       { code: 'G-01', name: 'KFC', category: 'Dining' },
-      { code: 'G-02', name: 'Boutique', category: 'Shopping' },
-      { code: 'G-03', name: 'Toys Store', category: 'Entertainment' },
+      { code: 'G-02', name: 'Fashion Boutique', category: 'Shopping' },
+      { code: 'G-03', name: 'Surprez Toys', category: 'Entertainment' },
       { code: 'G-04', name: 'Premium Salon', category: 'Lifestyle' },
-      { code: 'G-05', name: 'Jewellery', category: 'Shopping' },
-      { code: 'G-06', name: 'Supermarket (Coming Soon)', category: 'Shopping' },
-      { code: 'G-07', name: 'Food Court (Coming Soon)', category: 'Dining' },
-      { code: 'G-08', name: 'Gaming Zone (Coming Soon)', category: 'Entertainment' }
+      { code: 'G-05', name: 'Mayoodiya Jewellery', category: 'Shopping' },
+      { code: 'G-06', name: 'Lenora Fancy & Footwear', category: 'Shopping' },
+      { code: 'G-07', name: 'Supermarket (Coming Soon)', category: 'Shopping' },
+      { code: 'G-08', name: 'Food Court (Coming Soon)', category: 'Dining' },
+      { code: 'G-09', name: 'Gaming Zone (Coming Soon)', category: 'Entertainment' }
     ],
     'First Floor': [
       { code: 'F-01', name: 'Magic Frames Cinema Lobby', category: 'Entertainment' },
@@ -145,8 +171,12 @@ export default function BranchesPage() {
       <section className="relative min-h-[420px] lg:min-h-[480px] flex items-center bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-1600.webp"
+            src={heroImagePng}
             alt="S mall Concourse"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/images/heroimage.png";
+            }}
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/40" />
@@ -199,6 +229,10 @@ export default function BranchesPage() {
                   <img
                     src={store.image}
                     alt={store.name}
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = store.fallback || "/images/shopping.webp";
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-slate-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">

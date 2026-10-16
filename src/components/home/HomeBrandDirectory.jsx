@@ -14,6 +14,12 @@ import {
   ChevronRight
 } from "lucide-react";
 
+import magicFramesImg from "../../assets/magicframes.jpeg";
+import mayoodiyaImg from "../../assets/mayoodiyajewellery.jpeg";
+import boutiqueImg from "../../assets/botique.jpeg";
+import lenoraImg from "../../assets/lenorafancy.jpeg";
+import surprezToysImg from "../../assets/surpreztoys.jpeg";
+
 const STORES = [
   {
     id: "magic-frames",
@@ -21,8 +27,8 @@ const STORES = [
     category: "Entertainment",
     floor: "Level 2",
     tagline: "Premier Multi-Screen Blockbuster Experience",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
-    fallback: "/images/entertainment.webp",
+    image: magicFramesImg,
+    fallback: "/images/magicframes.jpeg",
     badge: "Now Showing",
     badgeColor: "bg-[#F9B00C] text-slate-950",
     link: "/experiences",
@@ -40,40 +46,52 @@ const STORES = [
     link: "/experiences",
   },
   {
-    id: "jewellery",
-    name: "Jewellery Concourse",
+    id: "mayoodiya-jewellery",
+    name: "Mayoodiya Jewellery",
     category: "Shopping",
     floor: "Ground Floor",
     tagline: "Bridal Gold, Diamond & Contemporary Jewels",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
-    fallback: "/images/shopping.webp",
+    image: mayoodiyaImg,
+    fallback: "/images/mayoodiyajewellery.jpeg",
     badge: "Front Entrance",
     badgeColor: "bg-amber-100 text-amber-900 border border-amber-300",
     link: "/explore",
   },
   {
     id: "boutiques",
-    name: "Fashion Boutiques",
+    name: "Fashion Boutique",
     category: "Shopping",
     floor: "First Floor",
     tagline: "Designer Ethnic Wear & Modern Apparel",
-    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=80",
-    fallback: "/images/shopping-480.webp",
+    image: boutiqueImg,
+    fallback: "/images/botique.jpeg",
     badge: "Fashion Avenue",
     badgeColor: "bg-blue-100 text-[#0E5EC8] border border-blue-200",
     link: "/explore",
   },
   {
-    id: "toys-store",
-    name: "Toys Store",
+    id: "surprez-toys",
+    name: "Surprez Toys",
     category: "Entertainment",
     floor: "Level 2",
     tagline: "Joyful Toys, Puzzles & Gifts for Kids",
-    image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
-    fallback: "/images/experience.webp",
+    image: surprezToysImg,
+    fallback: "/images/surpreztoys.jpeg",
     badge: "Kids & Family",
     badgeColor: "bg-emerald-100 text-emerald-800 border border-emerald-300",
     link: "/experiences",
+  },
+  {
+    id: "lenora-fancy",
+    name: "Lenora Fancy & Footwear",
+    category: "Shopping",
+    floor: "Ground Floor",
+    tagline: "Fashion Accessories, Footwear & Novelty Gifts",
+    image: lenoraImg,
+    fallback: "/images/lenorafancy.jpeg",
+    badge: "Ground Concourse",
+    badgeColor: "bg-pink-100 text-pink-800 border border-pink-300",
+    link: "/explore",
   },
   {
     id: "premium-salon",

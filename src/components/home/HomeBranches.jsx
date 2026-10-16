@@ -13,14 +13,17 @@ import {
   Phone
 } from "lucide-react";
 
+import hroic2Img from "../../assets/homepage/hroic2.jpeg";
+import heroImg from "../../assets/homepage/hero.jpeg";
+
 const ACCESS_ROUTES = [
   {
     id: "state-highway",
     title: "State Highway Frontage",
     subtitle: "Calicut – Nilambur – Gudalur Road (CNG / Calicut-Ooty Route)",
     badge: "Primary Front Entrance",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-    fallback: "/images/hero-1600.webp",
+    image: hroic2Img,
+    fallback: "/images/hroic2.jpeg",
     description:
       "S Mall sits prominently directly on the State Highway connecting Calicut, Nilambur, and Ooty. Visitors enjoy maximum visibility, an open paved forecourt, and wide vehicular entry gates.",
     points: [
@@ -34,8 +37,8 @@ const ACCESS_ROUTES = [
     title: "Malayora Highway Confluence",
     subtitle: "Hill Highway Corner Access",
     badge: "Corner Side Road Access",
-    image: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80",
-    fallback: "/images/experience.webp",
+    image: heroImg,
+    fallback: "/images/hero.jpeg",
     description:
       "The secondary side road gives visitors effortless entry from the Malayora Highway (Hill Highway), connecting Edakkara with adjacent residential townships without interstate traffic bottlenecks.",
     points: [

@@ -13,6 +13,9 @@ import {
   Scissors
 } from "lucide-react";
 
+import magicFramesImg from "../../assets/magicframes.jpeg";
+import surprezToysImg from "../../assets/surpreztoys.jpeg";
+
 export default function HomeExperiences() {
   const navigate = useNavigate();
 
@@ -76,12 +79,12 @@ export default function HomeExperiences() {
           className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[380px] sm:min-h-[460px] flex items-end p-6 sm:p-12 mb-8 group"
         >
           <img
-            src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80"
+            src={magicFramesImg}
             alt="Magic Frames Cinemas at S Mall Edakkara"
             loading="lazy"
             onError={(e) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "/images/entertainment-800.webp";
+              e.currentTarget.src = "/images/magicframes.jpeg";
             }}
             className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
           />
@@ -191,12 +194,12 @@ export default function HomeExperiences() {
           <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
               <img
-                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
-                alt="Kids and Family Gaming at S Mall"
+                src={surprezToysImg}
+                alt="Surprez Toys and Family Fun at S Mall"
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = "/images/entertainment.webp";
+                  e.currentTarget.src = "/images/surpreztoys.jpeg";
                 }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -210,10 +213,10 @@ export default function HomeExperiences() {
             <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
                 <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
-                  Toys Store & Gaming Zone
+                  Surprez Toys & Kids Zone
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  A wonderland for young explorers with learning toys, puzzles, plush gifts, and an upcoming arcade simulation & VR entertainment zone.
+                  A wonderland for young explorers featuring Surprez Toys, learning puzzles, gifts, alongside our upcoming family entertainment & arcade VR zone.
                 </p>
               </div>
 
