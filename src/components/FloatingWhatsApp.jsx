@@ -1,11 +1,10 @@
-
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = "919876543210"; // Replace with your WhatsApp number
+  const phoneNumber = "919447175232"; // S Mall Edakkara Official WhatsApp
   const message =
-    "Hello! I would like to know more about your services.";
+    "Hello! I am planning a visit to S Mall Edakkara and would like to know more about the facilities, movies, and store hours.";
 
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
@@ -16,8 +15,8 @@ const FloatingWhatsApp = () => {
       href={whatsappURL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      title="Chat with us on WhatsApp"
+      aria-label="Chat with S Mall on WhatsApp"
+      title="Chat with S Mall on WhatsApp"
       className="group fixed bottom-5 right-5 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-green-500/30 transition-all duration-300 ease-out hover:scale-110 hover:bg-[#20BA5A] hover:shadow-xl hover:shadow-green-500/40 active:scale-95 sm:bottom-7 sm:right-7 sm:h-16 sm:w-16"
     >
       {/* WhatsApp Icon */}

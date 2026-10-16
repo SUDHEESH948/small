@@ -1,0 +1,279 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { 
+  Film, 
+  Utensils, 
+  Gamepad2, 
+  Sparkles, 
+  ArrowRight, 
+  Languages, 
+  Popcorn, 
+  Armchair,
+  Scissors
+} from "lucide-react";
+
+export default function HomeExperiences() {
+  const navigate = useNavigate();
+
+  return (
+    <section id="mall-experiences" className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#0E5EC8] bg-[#0E5EC8]/10 px-3.5 py-1.5 rounded-full mb-3"
+            >
+              <Film className="w-3.5 h-3.5 text-[#F9B00C]" />
+              <span>Entertainment & Leisure</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight"
+            >
+              Experiences <br />
+              <span className="text-[#F9B00C]">Beyond Shopping.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
+            >
+              Movies, signature dining, kids' joy, and wellness — discover activities that make every visit to S Mall memorable.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/experiences"
+              className="inline-flex items-center gap-2 bg-[#0E5EC8] hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 group cursor-pointer"
+            >
+              <span>View All Experiences</span>
+              <ArrowRight className="w-4 h-4 text-[#F9B00C] transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* 1. Feature Anchor: Magic Frames Cinemas (Forum Kochi PVR Model) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[380px] sm:min-h-[460px] flex items-end p-6 sm:p-12 mb-8 group"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80"
+            alt="Magic Frames Cinemas at S Mall Edakkara"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/images/entertainment-800.webp";
+            }}
+            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/40 to-transparent hidden sm:block" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full">
+            <div className="space-y-3 max-w-2xl">
+              <span className="bg-[#F9B00C] text-slate-950 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-md inline-block shadow-sm">
+                Now Showing & Premieres
+              </span>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                Magic Frames Cinemas
+              </h3>
+              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+                Big Movies, Bigger Experiences. Watch the latest blockbuster releases with cutting-edge digital projection, crystal-clear surround sound, and comfortable push-back seating right here in Edakkara.
+              </p>
+
+              {/* Badges Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
+                <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-xs text-xs text-white">
+                  <Film className="w-3.5 h-3.5 text-[#F9B00C] shrink-0" />
+                  <span>Latest Releases</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-xs text-xs text-white">
+                  <Languages className="w-3.5 h-3.5 text-[#F9B00C] shrink-0" />
+                  <span>Multi-Language</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-xs text-xs text-white">
+                  <Armchair className="w-3.5 h-3.5 text-[#F9B00C] shrink-0" />
+                  <span>Luxury Seating</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-xs text-xs text-white">
+                  <Popcorn className="w-3.5 h-3.5 text-[#F9B00C] shrink-0" />
+                  <span>Snacks & Treats</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href="https://in.bookmyshow.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-slate-950 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
+              >
+                <span>BOOK TICKETS</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <Link
+                to="/experiences"
+                className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white px-5 py-4 rounded-xl font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-xs transition-all cursor-pointer"
+              >
+                <span>Cinema Details</span>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 3 Experience Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Card 1: Food & Dining */}
+          <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
+              <img
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
+                alt="Food and Dining at S Mall"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/dining.webp";
+                }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3">
+                <span className="bg-[#0E5EC8] text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                  Food & Dining
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
+                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                  KFC & Multi-Cuisine Food Court
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Savor freshly prepared meals at KFC alongside our upcoming multi-cuisine food court offering Kerala delicacies, continental snacks, and roadside cafes.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-200/80">
+                <Link
+                  to="/experiences"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
+                >
+                  <span>Explore Dining Outlets</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Kids' Activities & Gaming */}
+          <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
+              <img
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
+                alt="Kids and Family Gaming at S Mall"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/entertainment.webp";
+                }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3">
+                <span className="bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                  Kids & Gaming
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
+                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                  Toys Store & Gaming Zone
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  A wonderland for young explorers with learning toys, puzzles, plush gifts, and an upcoming arcade simulation & VR entertainment zone.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-200/80">
+                <Link
+                  to="/experiences"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
+                >
+                  <span>Explore Family Fun</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Beauty & Lifestyle Services */}
+          <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80"
+                alt="Beauty and Lifestyle at S Mall"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/about.webp";
+                }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3">
+                <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                  Beauty & Wellness
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
+                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                  Premium Salon & Personal Care
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Expert hair styling, rejuvenating skincare, bridal grooming, and personal care services situated comfortably on Level 2.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-200/80">
+                <Link
+                  to="/experiences"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
+                >
+                  <span>Explore Lifestyle Services</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}
