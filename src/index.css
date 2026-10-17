@@ -172,3 +172,33 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0E5EC8;
 }
+/* Smooth up-and-down floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* WhatsApp floating animation */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Instagram floating animation with staggered timing */
+.animate-float-delay {
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Respect reduced-motion accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delay {
+    animation: none;
+  }
+}

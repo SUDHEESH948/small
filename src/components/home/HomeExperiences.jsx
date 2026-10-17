@@ -1,28 +1,31 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  Film, 
-  Utensils, 
-  Gamepad2, 
-  Sparkles, 
-  ArrowRight, 
-  Languages, 
-  Popcorn, 
+import {
+  Film,
+  Utensils,
+  Gamepad2,
+  Sparkles,
+  ArrowRight,
+  Languages,
+  Popcorn,
   Armchair,
-  Scissors
+  Scissors,
 } from "lucide-react";
 
 import magicFramesImg from "../../assets/magicframes.jpeg";
 import surprezToysImg from "../../assets/surpreztoys.jpeg";
+import AmadoBeautyParlour from "../../assets/AmadoBeautyParlour.png";
 
 export default function HomeExperiences() {
   const navigate = useNavigate();
 
   return (
-    <section id="mall-experiences" className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+    <section
+      id="mall-experiences"
+      className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
@@ -52,7 +55,8 @@ export default function HomeExperiences() {
               viewport={{ once: true }}
               className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
             >
-              Movies, signature dining, kids' joy, and wellness — discover activities that make every visit to S Mall memorable.
+              Movies, signature dining, kids' joy, and wellness — discover
+              activities that make every visit to S Mall memorable.
             </motion.p>
           </div>
 
@@ -98,7 +102,10 @@ export default function HomeExperiences() {
                 Magic Frames Cinemas
               </h3>
               <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-                Big Movies, Bigger Experiences. Watch the latest blockbuster releases with cutting-edge digital projection, crystal-clear surround sound, and comfortable push-back seating right here in Edakkara.
+                Big Movies, Bigger Experiences. Watch the latest blockbuster
+                releases with cutting-edge digital projection, crystal-clear
+                surround sound, and comfortable push-back seating right here in
+                Edakkara.
               </p>
 
               {/* Badges Row */}
@@ -124,7 +131,7 @@ export default function HomeExperiences() {
 
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <a
-                href="https://in.bookmyshow.com"
+                href="https://www.district.in/movies/magic-frames-cinemas-s-mall-edakkara-CD1088547?srsltid=AU7gw4ULPeA0teazNxAzOJ9bMmZ6q2MDw_2cf8jur613BYWOWrxFmuPI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-slate-950 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
@@ -145,7 +152,6 @@ export default function HomeExperiences() {
 
         {/* 3 Experience Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
           {/* Card 1: Food & Dining */}
           <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
@@ -172,7 +178,9 @@ export default function HomeExperiences() {
                   KFC & Multi-Cuisine Food Court
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Savor freshly prepared meals at KFC alongside our upcoming multi-cuisine food court offering Kerala delicacies, continental snacks, and roadside cafes.
+                  Savor freshly prepared meals at KFC alongside our upcoming
+                  multi-cuisine food court offering Kerala delicacies,
+                  continental snacks, and roadside cafes.
                 </p>
               </div>
 
@@ -214,7 +222,9 @@ export default function HomeExperiences() {
                   Surprez Toys & Kids Zone
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  A wonderland for young explorers featuring Surprez Toys, learning puzzles, gifts, alongside our upcoming family entertainment & arcade VR zone.
+                  A wonderland for young explorers featuring Surprez Toys,
+                  learning puzzles, gifts, alongside our upcoming family
+                  entertainment & arcade VR zone.
                 </p>
               </div>
 
@@ -234,7 +244,7 @@ export default function HomeExperiences() {
           <div className="group bg-[#F5F7FA] rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
               <img
-                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80"
+                src={AmadoBeautyParlour}
                 alt="Beauty and Lifestyle at S Mall"
                 loading="lazy"
                 onError={(e) => {
@@ -252,11 +262,14 @@ export default function HomeExperiences() {
 
             <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
-                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
-                  Premium Salon & Personal Care
+                <h4 className="text-xl font-black text-slate-900 transition-colors group-hover:text-[#0E5EC8]">
+                  Amado Amado Beauty Parlour(Unisex Salon)
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Expert hair styling, rejuvenating skincare, bridal grooming, and personal care services situated comfortably on Level 2.
+
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-slate-600">
+                  Professional haircuts, styling, hair care, skincare, bridal
+                  makeup, and premium grooming services for men and women,
+                  located on Level 2.
                 </p>
               </div>
 
@@ -271,9 +284,7 @@ export default function HomeExperiences() {
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

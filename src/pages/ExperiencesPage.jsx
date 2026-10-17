@@ -1,31 +1,30 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  Film, 
-  Utensils, 
-  Sparkles, 
-  ArrowRight, 
-  Gamepad2, 
-  Scissors, 
-  ShoppingBag, 
-  Languages, 
-  Armchair, 
-  Popcorn, 
-  Tv2
-} from 'lucide-react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Film,
+  Utensils,
+  Sparkles,
+  ArrowRight,
+  Gamepad2,
+  Scissors,
+  ShoppingBag,
+  Languages,
+  Armchair,
+  Popcorn,
+  Tv2,
+} from "lucide-react";
 
-import magicFramesImg from '../assets/magicframes.jpeg';
-import surprezToysImg from '../assets/surpreztoys.jpeg';
-import boutiqueImg from '../assets/botique.jpeg';
-import heroImg from '../assets/homepage/hero.jpeg';
-import hroic2Img from '../assets/homepage/hroic2.jpeg';
-
+import magicFramesImg from "../assets/magicframes.jpeg";
+import surprezToysImg from "../assets/surpreztoys.jpeg";
+import boutiqueImg from "../assets/botique.jpeg";
+import heroImg from "../assets/homepage/hero.jpeg";
+import hroic2Img from "../assets/homepage/hero2.png";
+import AmadoBeautyParlour from "../assets/AmadoBeautyParlour.png";
 export default function ExperiencesPage() {
   const navigate = useNavigate();
 
   return (
     <div className="w-full bg-[#F5F7FA]">
-      
       {/* 1. Hero Section matching screenshot: "Experiences beyond shopping." */}
       <section className="relative min-h-[440px] lg:min-h-[500px] flex items-center bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -40,10 +39,13 @@ export default function ExperiencesPage() {
           <div className="max-w-2xl space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               Experiences <br />
-              <span className="text-[#F9B00C] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">beyond shopping.</span>
+              <span className="text-[#F9B00C] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+                beyond shopping.
+              </span>
             </h1>
             <p className="text-base sm:text-lg text-white font-medium max-w-lg leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-              Movies, dining, entertainment, events and more — there's always something to look forward to at S mall.
+              Movies, dining, entertainment, events and more — there's always
+              something to look forward to at S mall.
             </p>
           </div>
         </div>
@@ -52,18 +54,19 @@ export default function ExperiencesPage() {
       {/* 2. "At the Movies" Section matching screenshot */}
       <section className="py-14 sm:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               At the Movies
             </h2>
-            <button 
-              onClick={() => alert("Magic Frames Cinemas tickets booking schedule coming soon!")}
+            <a
+              href="https://in.bookmyshow.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
             >
-              <span>View All</span>
+              <span>View Showtimes</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           {/* Featured Cinema Card */}
@@ -93,7 +96,7 @@ export default function ExperiencesPage() {
 
               <div>
                 <a
-                  href="https://in.bookmyshow.com"
+                  href="https://www.district.in/movies/magic-frames-cinemas-s-mall-edakkara-CD1088547?srsltid=AU7gw4ULPeA0teazNxAzOJ9bMmZ6q2MDw_2cf8jur613BYWOWrxFmuPI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all"
@@ -109,22 +112,29 @@ export default function ExperiencesPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
               <Film className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">Latest Movies</span>
+              <span className="text-xs font-bold text-slate-800">
+                Latest Movies
+              </span>
             </div>
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
               <Languages className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">Multiple Languages</span>
+              <span className="text-xs font-bold text-slate-800">
+                Multiple Languages
+              </span>
             </div>
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
               <Armchair className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">Comfortable Seating</span>
+              <span className="text-xs font-bold text-slate-800">
+                Comfortable Seating
+              </span>
             </div>
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
               <Popcorn className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">Blockbuster Experience</span>
+              <span className="text-xs font-bold text-slate-800">
+                Blockbuster Experience
+              </span>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -135,8 +145,8 @@ export default function ExperiencesPage() {
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Food & Dining
             </h2>
-            <button 
-              onClick={() => navigate('/explore')}
+            <button
+              onClick={() => navigate("/explore")}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
             >
               <span>View all</span>
@@ -145,17 +155,23 @@ export default function ExperiencesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
             {/* KFC */}
             <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
-                <img src="/images/dining.webp" alt="KFC" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src="/images/dining.webp"
+                  alt="KFC"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Fast Food & Chicken</span>
+                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">
+                  Fast Food & Chicken
+                </span>
                 <h3 className="text-lg font-black text-slate-900">KFC</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Great food for every mood. Fresh hot chicken and signature treats.
+                  Great food for every mood. Fresh hot chicken and signature
+                  treats.
                 </p>
                 <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1">
                   <span>Visit Store</span>
@@ -167,13 +183,22 @@ export default function ExperiencesPage() {
             {/* Food Court */}
             <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
-                <img src="/images/dining-800.webp" alt="Food Court" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src="/images/dining-800.webp"
+                  alt="Food Court"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">Multi-Cuisine</span>
-                <h3 className="text-lg font-black text-slate-900">Food Court (Coming Soon)</h3>
+                <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">
+                  Multi-Cuisine
+                </span>
+                <h3 className="text-lg font-black text-slate-900">
+                  Food Court (Coming Soon)
+                </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  A variety of cuisines under one roof, from authentic Kerala delicacies to continental snacks.
+                  A variety of cuisines under one roof, from authentic Kerala
+                  delicacies to continental snacks.
                 </p>
                 <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1">
                   <span>Explore Menu</span>
@@ -181,7 +206,6 @@ export default function ExperiencesPage() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -193,8 +217,8 @@ export default function ExperiencesPage() {
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Family Fun
             </h2>
-            <button 
-              onClick={() => navigate('/explore')}
+            <button
+              onClick={() => navigate("/explore")}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
             >
               <span>View all</span>
@@ -203,25 +227,29 @@ export default function ExperiencesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
             {/* Toys Store */}
             <div className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-200">
-                <img 
-                  src={surprezToysImg} 
-                  alt="Surprez Toys Store" 
+                <img
+                  src={surprezToysImg}
+                  alt="Surprez Toys Store"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "/images/surpreztoys.jpeg";
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Kids & Play</span>
-                <h3 className="text-lg font-black text-slate-900">Surprez Toys Store</h3>
+                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">
+                  Kids & Play
+                </span>
+                <h3 className="text-lg font-black text-slate-900">
+                  Surprez Toys Store
+                </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  A world of toys, learning puzzles and smiles for little explorers.
+                  A world of toys, learning puzzles and smiles for little
+                  explorers.
                 </p>
               </div>
             </div>
@@ -229,17 +257,25 @@ export default function ExperiencesPage() {
             {/* Gaming Zone */}
             <div className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-200">
-                <img src="/images/entertainment.webp" alt="Gaming Zone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src="/images/entertainment.webp"
+                  alt="Gaming Zone"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">Arcade & VR</span>
-                <h3 className="text-lg font-black text-slate-900">Gaming Zone (Coming Soon)</h3>
+                <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">
+                  Arcade & VR
+                </span>
+                <h3 className="text-lg font-black text-slate-900">
+                  Gaming Zone (Coming Soon)
+                </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Play, connect, enjoy arcade simulations, VR adventures, and prize games.
+                  Play, connect, enjoy arcade simulations, VR adventures, and
+                  prize games.
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -251,8 +287,8 @@ export default function ExperiencesPage() {
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Lifestyle & Wellness
             </h2>
-            <button 
-              onClick={() => navigate('/explore')}
+            <button
+              onClick={() => navigate("/explore")}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors"
             >
               <span>View all</span>
@@ -261,43 +297,71 @@ export default function ExperiencesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
-            {/* Premium Salon */}
-            <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
-              <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
-                <img src="/images/about.webp" alt="Premium Salon" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            {/* Amado Unisex Salon */}
+            <div className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg sm:flex-row">
+              <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 sm:aspect-square sm:w-1/2">
+                <img
+                  src={AmadoBeautyParlour}
+                  alt="Amado Unisex Salon at S Mall Edakkara"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/images/about.webp";
+                  }}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Beauty & Grooming</span>
-                <h3 className="text-lg font-black text-slate-900">Premium Salon</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Style, relax, rejuvenate. Expert hair styling, skincare, and bridal grooming.
+
+              <div className="space-y-2 p-6 sm:w-1/2">
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-[#0E5EC8]">
+                  Beauty & Grooming
+                </span>
+
+                <h3 className="text-lg font-black text-slate-900 transition-colors group-hover:text-[#0E5EC8]">
+                  Amado Unisex Salon
+                </h3>
+
+                <p className="text-xs leading-relaxed text-slate-500">
+                  Style, relax, rejuvenate. Professional haircuts, styling, hair
+                  care, skincare, bridal makeup, and premium grooming services
+                  for men and women.
                 </p>
               </div>
             </div>
 
             {/* Shopping */}
-            <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
-              <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
-                <img 
-                  src={boutiqueImg} 
-                  alt="Fashion Boutique" 
+
+            {/* Boutique B for U */}
+            <div className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg sm:flex-row">
+              <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 sm:aspect-square sm:w-1/2">
+                <img
+                  src={boutiqueImg}
+                  alt="B for U Boutique"
+                  loading="lazy"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "/images/botique.jpeg";
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-6 sm:w-1/2 space-y-2">
-                <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">Fashion & Jewellery</span>
-                <h3 className="text-lg font-black text-slate-900">Boutique & Fashion</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Designer ethnic wear, bridal jewels, footwear and accessories from curated labels.
+
+              <div className="space-y-2 p-6 sm:w-1/2">
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-[#0E5EC8]">
+                  Fashion & Jewellery
+                </span>
+
+                <h3 className="text-lg font-black text-slate-900 transition-colors group-hover:text-[#0E5EC8]">
+                  B for U
+                </h3>
+
+                <p className="text-xs leading-relaxed text-slate-500">
+                  Discover stylish outfits, designer ethnic wear, bridal
+                  jewellery, footwear, and fashion accessories to complement
+                  every occasion.
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -316,16 +380,17 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-4">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10  p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-4">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
             Make more memories here.
           </h2>
           <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto leading-relaxed">
-            From movie nights to family outings, S mall is your destination for moments that matter.
+            From movie nights to family outings, S mall is your destination for
+            moments that matter.
           </p>
           <div className="pt-2">
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate("/contact")}
               className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] px-7 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all"
             >
               <span>PLAN YOUR VISIT</span>
@@ -334,8 +399,6 @@ export default function ExperiencesPage() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
-

@@ -1,466 +1,630 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
   Car,
-  ArrowRight, 
-  CheckCircle2, 
-  AlertCircle, 
-  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  AlertCircle,
   ExternalLink,
-  ShieldCheck
-} from 'lucide-react';
-import { branches } from '../data/branches';
-
+} from "lucide-react";
+import { FaInstagram as Instagram } from "react-icons/fa";
+import heroImage from "../assets/homepage/heroimage.png";
 export default function ContactSection() {
   const [searchParams] = useSearchParams();
-  const subjectParam = searchParams.get('subject') || '';
+  const subjectParam = searchParams.get("subject") || "";
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: subjectParam || '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: subjectParam,
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const validate = () => {
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, subject: subjectParam }));
+  }, [subjectParam]);
+
+  const validate = (data = formData) => {
     const errs = {};
-    if (!formData.name.trim()) {
-      errs.name = 'Your name is required';
+
+    if (!data.name.trim()) {
+      errs.name = "Your name is required";
     }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      errs.email = 'Email address is required';
-    } else if (!emailRegex.test(formData.email.trim())) {
-      errs.email = 'Please enter a valid email address';
+
+    if (!data.email.trim()) {
+      errs.email = "Email address is required";
+    } else if (!emailRegex.test(data.email.trim())) {
+      errs.email = "Please enter a valid email address";
     }
-    if (!formData.message.trim() || formData.message.trim().length < 8) {
-      errs.message = 'Please enter your message (at least 8 characters)';
+
+    if (!data.message.trim() || data.message.trim().length < 8) {
+      errs.message = "Please enter your message (at least 8 characters)";
     }
+
     return errs;
   };
 
   const handleBlur = (field) => {
-    setTouched(prev => ({ ...prev, [field]: true }));
+    setTouched((prev) => ({ ...prev, [field]: true }));
     setErrors(validate());
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+
+    const updatedData = { ...formData, [name]: value };
+    setFormData(updatedData);
+
     if (touched[name]) {
-      setErrors(validate());
+      setErrors(validate(updatedData));
     }
+
+    setSubmitted(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTouched({
+
+    const allTouched = {
       name: true,
       email: true,
       phone: true,
       subject: true,
-      message: true
-    });
+      message: true,
+    };
+
+    setTouched(allTouched);
 
     const validationErrors = validate();
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length === 0) {
-      const subjectText = formData.subject || 'General Enquiry';
-      const text = encodeURIComponent(
-        `*S MALL CONTACT ENQUIRY*\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\nSubject: ${subjectText}\nMessage: ${formData.message}`
-      );
-      window.open(`https://wa.me/919447175232?text=${text}`, '_blank');
-      setSubmitted(true);
+    if (Object.keys(validationErrors).length > 0) {
+      return;
     }
+
+    const subjectText = formData.subject || "General Enquiry";
+
+    const message = [
+      "*S MALL CONTACT ENQUIRY*",
+      "",
+      `Name: ${formData.name.trim()}`,
+      `Email: ${formData.email.trim()}`,
+      `Phone: ${formData.phone.trim() || "N/A"}`,
+      `Subject: ${subjectText}`,
+      `Message: ${formData.message.trim()}`,
+    ].join("\n");
+
+    const whatsappURL = `https://wa.me/919447175232?text=${encodeURIComponent(
+      message,
+    )}`;
+
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
   };
+
+  const contactCards = [
+    {
+      title: "Call Us",
+      icon: Phone,
+      content: (
+        <>
+          <a
+            href="tel:+919447175232"
+            className="block text-lg font-bold text-white transition-colors hover:text-sky-400"
+          >
+            +91 94471 75232
+          </a>
+          <a
+            href="tel:+917732001005"
+            className="mt-2 block text-base font-semibold text-white transition-colors hover:text-sky-400"
+          >
+            +91 77320 01005
+          </a>
+          <span className="mt-2 block text-xs text-slate-400">
+            Primary & alternate contact
+          </span>
+          <span className="mt-1 block text-xs text-slate-400">
+            10:00 AM – 10:00 PM
+          </span>
+        </>
+      ),
+    },
+    {
+      title: "Email Us",
+      icon: Mail,
+      content: (
+        <>
+          <a
+            href="mailto:s.mall.edakkara@gmail.com"
+            className="mt-3 block break-all text-sm font-bold text-white transition-colors hover:text-sky-400"
+          >
+            s.mall.edakkara@gmail.com
+          </a>
+          <span className="mt-2 block text-xs text-slate-400">Email</span>
+        </>
+      ),
+    },
+    {
+      title: "Visit Us",
+      icon: MapPin,
+      content: (
+        <>
+          <p className="mt-1 text-base font-bold text-white">
+            S Mall, Edakkara
+          </p>
+          <a
+            href="https://maps.google.com/?q=S+Mall+Main+Road+Edakkara"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:underline"
+          >
+            View on Maps <ArrowRight className="h-3 w-3" />
+          </a>
+        </>
+      ),
+    },
+    {
+      title: "Follow Us",
+      icon: Instagram,
+      content: (
+        <>
+          <a
+            href="https://www.instagram.com/s.mall_edakkara/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 block text-lg font-bold text-white transition-colors hover:text-pink-400"
+          >
+            @s.mall_edakkara
+          </a>
+          <p className="mt-2 text-xs leading-relaxed text-slate-400">
+            Follow us for mall updates, announcements, and experiences.
+          </p>
+          <a
+            href="https://www.instagram.com/s.mall_edakkara/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-pink-400 hover:underline"
+          >
+            Visit Instagram <ExternalLink className="h-3 w-3" />
+          </a>
+        </>
+      ),
+    },
+  ];
 
   return (
     <div className="w-full bg-[#F5F7FA]">
-      
-      {/* 1. Hero Section matching screenshot: "Get in touch. We're here to help." */}
-      <section className="relative min-h-[380px] lg:min-h-[440px] flex items-center  overflow-hidden">
-        {/* Background photo */}
-        <div className="absolute inset-0 z-0">
+      {/* Hero Section */}
+      <section className="relative flex min-h-[380px] items-center overflow-hidden lg:min-h-[440px]">
+        <div className="absolute inset-0">
           <img
             src="/images/hero-1600.webp"
-            alt="S mall Concourse"
-            className="w-full h-full "
+            alt="S Mall Edakkara concourse"
+            className="h-full w-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
           />
-         
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 w-full">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-              Get in touch. <br />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F9B00C]">
+              Contact S Mall
+            </span>
+
+            <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Get in touch.
+              <br />
               <span className="font-normal italic text-sky-400">
-                We’re here to help.
+                We're here to help.
               </span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 max-w-lg leading-relaxed font-normal">
+
+            <p className="max-w-lg text-sm font-normal leading-relaxed text-slate-300 sm:text-base">
               For enquiries, assistance or feedback, our team is happy to help.
+              Contact S Mall Edakkara using your preferred channel.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2. Three Floating Dark Info Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-16 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          
-          {/* Card 1: Call Us */}
-          <div className="bg-[#0B2545] text-white p-6 sm:p-7 rounded-2xl shadow-xl border border-blue-900/60 space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 border border-sky-400/20 flex items-center justify-center">
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs uppercase font-bold tracking-wider text-slate-400 block">Call Us</span>
-              <a href="tel:+919447175232" className="text-lg font-bold text-white hover:text-sky-400 transition-colors block mt-0.5">
-                +91 94471 75232
-              </a>
-              <span className="text-xs text-slate-400 mt-1 block">10:00 AM – 10:00 PM</span>
-            </div>
-          </div>
-
-          {/* Card 2: Email Us */}
-          <div className="bg-[#0B2545] text-white p-6 sm:p-7 rounded-2xl shadow-xl border border-blue-900/60 space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 border border-sky-400/20 flex items-center justify-center">
-              <Mail className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs uppercase font-bold tracking-wider text-slate-400 block">Email Us</span>
-              <a href="mailto:smallmalledakkara@gmail.com" className="text-base sm:text-lg font-bold text-white hover:text-sky-400 transition-colors block mt-0.5 truncate">
-                smallmalledakkara@gmail.com
-              </a>
-              <span className="text-xs text-slate-400 mt-1 block">We reply within 24 hours</span>
-            </div>
-          </div>
-
-          {/* Card 3: Visit Us */}
-          <div className="bg-[#0B2545] text-white p-6 sm:p-7 rounded-2xl shadow-xl border border-blue-900/60 space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 border border-sky-400/20 flex items-center justify-center">
-              <MapPin className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs uppercase font-bold tracking-wider text-slate-400 block">Visit Us</span>
-              <div className="text-base sm:text-lg font-bold text-white mt-0.5">
-                S mall, Edakkara
+      {/* Contact Information Cards */}
+      <div className="relative z-20 mx-auto -mt-12 max-w-7xl px-4 sm:-mt-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+          {contactCards.map(({ title, icon: Icon, content }) => (
+            <div
+              key={title}
+              className="space-y-3 rounded-2xl border border-blue-900/60 bg-[#0B2545] p-6 text-white shadow-xl transition-transform duration-300 hover:-translate-y-1 sm:p-7"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-500/15 text-sky-400">
+                <Icon className="h-5 w-5" />
               </div>
-              <a 
-                href="https://maps.google.com/?q=S+Mall+Main+Road+Edakkara" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-xs text-sky-400 hover:underline mt-1 inline-flex items-center gap-1 font-semibold"
-              >
-                <span>View on Maps</span>
-                <ArrowRight className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
 
+              <div>
+                <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                  {title}
+                </span>
+                <div className="mt-1">{content}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* 3. "Send us a message." Form + Right Tall Mall Interior Image Card */}
+      {/* Contact Form and Mall Image */}
       <section className="py-14 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-            
-            {/* Left Form Column */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
-              
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
+            {/* Contact Form */}
+            <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:col-span-7">
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0E5EC8]">
+                    We'd love to hear from you
+                  </span>
+                  <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">
                     Send us a message.
                   </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                    Complete the form below to prepare your enquiry in WhatsApp.
+                  </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                  
-                  {/* Your Name */}
+                  {/* Name */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label
+                      htmlFor="contact-name"
+                      className="mb-1 block text-xs font-bold text-slate-700"
+                    >
                       Your Name <span className="text-rose-500">*</span>
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={handleChange}
-                      onBlur={() => handleBlur('name')}
+                      onBlur={() => handleBlur("name")}
                       placeholder="e.g. John Doe"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
+                      aria-invalid={Boolean(touched.name && errors.name)}
+                      className={`w-full rounded-xl border px-4 py-3 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
                         touched.name && errors.name
-                          ? 'border-rose-400 bg-rose-50/20'
-                          : 'border-slate-200 bg-slate-50 focus:bg-white'
+                          ? "border-rose-400 bg-rose-50/20"
+                          : "border-slate-200 bg-slate-50 focus:bg-white"
                       }`}
                     />
                     {touched.name && errors.name && (
-                      <div className="flex items-center gap-1 text-xs text-rose-500 mt-1">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.name}</span>
-                      </div>
+                      <p className="mt-1 flex items-center gap-1 text-xs text-rose-500">
+                        <AlertCircle className="h-3.5 w-3.5" />
+                        {errors.name}
+                      </p>
                     )}
                   </div>
 
-                  {/* Email Address */}
+                  {/* Email */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label
+                      htmlFor="contact-email"
+                      className="mb-1 block text-xs font-bold text-slate-700"
+                    >
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={handleChange}
-                      onBlur={() => handleBlur('email')}
+                      onBlur={() => handleBlur("email")}
                       placeholder="e.g. john@example.com"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
+                      aria-invalid={Boolean(touched.email && errors.email)}
+                      className={`w-full rounded-xl border px-4 py-3 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
                         touched.email && errors.email
-                          ? 'border-rose-400 bg-rose-50/20'
-                          : 'border-slate-200 bg-slate-50 focus:bg-white'
+                          ? "border-rose-400 bg-rose-50/20"
+                          : "border-slate-200 bg-slate-50 focus:bg-white"
                       }`}
                     />
                     {touched.email && errors.email && (
-                      <div className="flex items-center gap-1 text-xs text-rose-500 mt-1">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.email}</span>
-                      </div>
+                      <p className="mt-1 flex items-center gap-1 text-xs text-rose-500">
+                        <AlertCircle className="h-3.5 w-3.5" />
+                        {errors.email}
+                      </p>
                     )}
                   </div>
 
-                  {/* Phone Number */}
+                  {/* Phone */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label
+                      htmlFor="contact-phone"
+                      className="mb-1 block text-xs font-bold text-slate-700"
+                    >
                       Phone Number
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       name="phone"
+                      autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="e.g. +91 94471 75232"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] focus:bg-white"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0E5EC8]"
                     />
                   </div>
 
-                  {/* Subject Dropdown */}
+                  {/* Subject */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label
+                      htmlFor="contact-subject"
+                      className="mb-1 block text-xs font-bold text-slate-700"
+                    >
                       Subject
                     </label>
                     <select
+                      id="contact-subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] focus:bg-white"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0E5EC8]"
                     >
                       <option value="">Select an option</option>
-                      <option value="Leasing Enquiry">Retail Leasing & Shop Enquiry</option>
-                      <option value="Store Feedback">Customer Store Feedback</option>
-                      <option value="Event Space Inquiry">Event Space / Atrium Booking</option>
-                      <option value="Management General">General Management Question</option>
+                      <option value="Leasing Enquiry">
+                        Retail Leasing & Shop Enquiry
+                      </option>
+                      <option value="Store Feedback">
+                        Customer Store Feedback
+                      </option>
+                      <option value="Event Space Inquiry">
+                        Event Space / Atrium Booking
+                      </option>
+                      <option value="Management General">
+                        General Management Question
+                      </option>
                     </select>
                   </div>
 
-                  {/* Your Message */}
+                  {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label
+                      htmlFor="contact-message"
+                      className="mb-1 block text-xs font-bold text-slate-700"
+                    >
                       Your Message <span className="text-rose-500">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       rows={4}
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      onBlur={() => handleBlur('message')}
+                      onBlur={() => handleBlur("message")}
                       placeholder="How can we help you?"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
+                      aria-invalid={Boolean(touched.message && errors.message)}
+                      className={`w-full resize-y rounded-xl border px-4 py-3 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#0E5EC8] ${
                         touched.message && errors.message
-                          ? 'border-rose-400 bg-rose-50/20'
-                          : 'border-slate-200 bg-slate-50 focus:bg-white'
+                          ? "border-rose-400 bg-rose-50/20"
+                          : "border-slate-200 bg-slate-50 focus:bg-white"
                       }`}
                     />
                     {touched.message && errors.message && (
-                      <div className="flex items-center gap-1 text-xs text-rose-500 mt-1">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.message}</span>
-                      </div>
+                      <p className="mt-1 flex items-center gap-1 text-xs text-rose-500">
+                        <AlertCircle className="h-3.5 w-3.5" />
+                        {errors.message}
+                      </p>
                     )}
                   </div>
 
-                  {/* Submit Button in Golden Yellow matching screenshot */}
+                  {/* Submit */}
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] px-8 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F9B00C] px-8 py-3.5 text-xs font-black uppercase tracking-wider text-[#1F2937] shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#e5a007] hover:shadow-lg active:scale-95"
                   >
-                    <span>SEND MESSAGE</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>Send Message via WhatsApp</span>
+                    <ArrowRight className="h-4 w-4" />
                   </button>
 
                   {submitted && (
-                    <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 animate-in fade-in">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>Thank you! Your message has been prepared for dispatch to S mall management.</span>
+                    <div
+                      role="status"
+                      className="flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3.5 text-xs text-emerald-800"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                      <span>
+                        Your enquiry has been prepared in WhatsApp. Please
+                        review and send the message in WhatsApp to contact S
+                        Mall management.
+                      </span>
                     </div>
                   )}
-
                 </form>
               </div>
 
-              {/* Subtext link pointing to Leasing */}
-              <div className="pt-6 mt-6 border-t border-slate-100 text-xs text-slate-500">
-                For business enquiries related to leasing, please use our{' '}
-                <Link to="/leasing" className="text-[#0E5EC8] hover:underline font-bold inline-flex items-center gap-0.5">
-                  Leasing Enquiry form here <ArrowRight className="w-3 h-3" />
+              {/* Leasing Link */}
+              <div className="mt-6 border-t border-slate-100 pt-6 text-xs text-slate-500">
+                For business enquiries related to leasing, please use our{" "}
+                <Link
+                  to="/leasing"
+                  className="inline-flex items-center gap-0.5 font-bold text-[#0E5EC8] hover:underline"
+                >
+                  Leasing Enquiry form here
+                  <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
-
             </div>
 
-            {/* Right Column: Tall Architectural Image Card matching screenshot */}
-            <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-full rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+            {/* Mall Interior Image */}
+            <div className="group relative min-h-[400px] overflow-hidden rounded-3xl border border-slate-200 shadow-lg lg:col-span-5">
               <img
-                src="/images/shopping.webp"
-                alt="S mall Interior Architecture"
-                className="w-full h-full object-cover"
+                src={heroImage}
+                alt="S Mall Edakkara interior"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider text-[#F9B00C] block">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+
+              <div className="absolute bottom-6 left-6 right-6 text-white sm:bottom-8 sm:left-8">
+                <span className="block text-[10px] font-black uppercase tracking-wider text-[#F9B00C]">
                   Edakkara Flagship
                 </span>
-                <h3 className="text-xl font-black mt-1">S mall Modern Concourse</h3>
-                <p className="text-xs text-slate-300 mt-1">
-                  Welcoming thousands of shoppers and visitors daily along the Calicut-Ooty corridor.
+                <h3 className="mt-2 text-2xl font-black">
+                  S Mall Modern Concourse
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                  Your destination for shopping, entertainment, dining, and
+                  memorable experiences in Edakkara.
                 </p>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* 4. "Our Location." Section matching screenshot */}
-      <section className="py-14 sm:py-20 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Left Column: Location details & Opening Hours & Parking */}
-            <div className="lg:col-span-6 space-y-6">
-              
+      {/* Location and Facilities */}
+      <section className="border-t border-slate-200 bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
+            {/* Location Details */}
+            <div className="space-y-6 lg:col-span-6">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0E5EC8]">
+                  Find Us
+                </span>
+                <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">
                   Our Location.
                 </h2>
-                <div className="mt-2 space-y-1">
-                  <span className="text-sm font-bold text-slate-800 block">S mall, Edakkara</span>
-                  <p className="text-xs text-slate-500 leading-relaxed max-w-md">
-                    S. Mall, Main Road Edakkara, CNG Road (Calicut Nilambur Gudalur Road / Calicut-Ooty Main Road), Malappuram, Kerala.
+
+                <div className="mt-3 space-y-2">
+                  <span className="block text-sm font-bold text-slate-800">
+                    S Mall, Edakkara
+                  </span>
+
+                  <p className="max-w-md text-xs leading-relaxed text-slate-500">
+                    S. Mall, Main Road, Edakkara, CNG Road (Calicut–Nilambur–
+                    Gudalur Road / Calicut–Ooty Main Road), Malappuram, Kerala.
                   </p>
+
                   <a
                     href="https://maps.google.com/?q=S+Mall+Main+Road+Edakkara"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] hover:text-blue-800 transition-colors pt-1"
+                    className="inline-flex items-center gap-1.5 pt-1 text-xs font-bold text-[#0E5EC8] transition-colors hover:text-blue-800"
                   >
-                    <span>Get Directions</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#F9B00C]" />
+                    Get Directions
+                    <ArrowRight className="h-3.5 w-3.5 text-[#F9B00C]" />
                   </a>
                 </div>
               </div>
 
-              {/* 2 Feature Cards: Opening Hours & Parking Information */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                
-                {/* Opening Hours Card */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
-                  <div className="flex items-center gap-2 text-slate-900 font-bold">
-                    <Clock className="w-4 h-4 text-[#0E5EC8]" />
+              <div className="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2">
+                {/* Opening Hours */}
+                <div className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-5">
+                  <div className="flex items-center gap-2 font-bold text-slate-900">
+                    <Clock className="h-4 w-4 text-[#0E5EC8]" />
                     <span>Opening Hours</span>
                   </div>
-                  <div className="text-slate-700">
-                    <div>Monday – Sunday:</div>
-                    <div className="font-bold text-slate-900 text-sm">10:00 AM – 10:00 PM</div>
-                    <div className="text-[10px] text-slate-400 mt-1">*Timings may vary for individual stores.</div>
+
+                  <div className="text-xs text-slate-600">
+                    <p>Monday – Sunday</p>
+                    <p className="mt-1 text-sm font-bold text-slate-900">
+                      10:00 AM – 10:00 PM
+                    </p>
+                    <p className="mt-2 text-[10px] leading-relaxed text-slate-400">
+                      Timings may vary for individual stores.
+                    </p>
                   </div>
                 </div>
 
-                {/* Parking Information Card */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
-                  <div className="flex items-center gap-2 text-slate-900 font-bold">
-                    <Car className="w-4 h-4 text-[#0E5EC8]" />
+                {/* Parking */}
+                <div className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-5">
+                  <div className="flex items-center gap-2 font-bold text-slate-900">
+                    <Car className="h-4 w-4 text-[#0E5EC8]" />
                     <span>Parking Information</span>
                   </div>
-                  <div className="text-slate-600 space-y-1 text-[11px]">
-                    <div>Spacious parking for cars & two-wheelers.</div>
-                    <div className="text-slate-500">• Safe and well-lit</div>
-                    <div className="text-slate-500">• Accessible parking bays</div>
-                    <div className="text-slate-500">• Easy highway entry & exit</div>
+
+                  <div className="space-y-2 text-[11px] leading-relaxed text-slate-600">
+                    <p>Parking information for visitors:</p>
+                    <p>• Car and two-wheeler parking</p>
+                    <p>• Highway access</p>
+                    <p>• Convenient visitor access</p>
                   </div>
                 </div>
-
               </div>
 
+              {/* Additional Contact Details */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-5">
+                <h3 className="text-sm font-black text-slate-900">
+                  Need additional assistance?
+                </h3>
+
+                <div className="mt-3 flex flex-col gap-3 text-sm">
+                  <a
+                    href="tel:+917732001005"
+                    className="flex items-center gap-2 text-slate-600 transition-colors hover:text-[#0E5EC8]"
+                  >
+                    <Phone className="h-4 w-4 text-[#0E5EC8]" />
+                    +91 77320 01005
+                  </a>
+
+                  <a
+                    href="mailto:s.mall.edakkara@gmail.com"
+                    className="flex items-center gap-2 break-all text-slate-600 transition-colors hover:text-[#0E5EC8]"
+                  >
+                    <Mail className="h-4 w-4 shrink-0 text-[#0E5EC8]" />
+                    s.mall.edakkara@gmail.com
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/s.mall_edakkara/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-slate-600 transition-colors hover:text-pink-600"
+                  >
+                    <Instagram className="h-4 w-4 text-pink-500" />
+                    @s.mall_edakkara
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: Stylized Map Card with Red S mall Pin */}
-            <div className="lg:col-span-6 relative aspect-16/10 rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 group">
-              {/* Map background illustration / Google Map styling */}
-              <div className="absolute inset-0 bg-[#E8ECEF] flex items-center justify-center">
-                {/* Road grid lines */}
-                <svg className="w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="35%" x2="100%" y2="35%" stroke="#CBD5E1" strokeWidth="18" />
-                  <line x1="0" y1="35%" x2="100%" y2="35%" stroke="#FFF" strokeWidth="12" />
-                  <line x1="60%" y1="0" x2="60%" y2="100%" stroke="#CBD5E1" strokeWidth="22" />
-                  <line x1="60%" y1="0" x2="60%" y2="100%" stroke="#FDE047" strokeWidth="14" />
-                  <line x1="20%" y1="10%" x2="90%" y2="90%" stroke="#CBD5E1" strokeWidth="12" />
-                  <line x1="20%" y1="10%" x2="90%" y2="90%" stroke="#FFF" strokeWidth="8" />
-                </svg>
-              </div>
+            {/* Map Card */}
+            <div className="group relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-md lg:col-span-6">
+              <iframe
+                title="S Mall Edakkara location on Google Maps"
+                src="https://maps.google.com/maps?q=S%20Mall%20Main%20Road%20Edakkara&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
 
-              {/* Red Map Pin with "S mall" badge */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <div className="bg-[#0E5EC8] text-white px-3 py-1 rounded-full text-xs font-black shadow-lg flex items-center gap-1.5 border border-white">
-                  <span className="w-2 h-2 rounded-full bg-[#F9B00C] animate-pulse"></span>
-                  <span>S mall</span>
-                </div>
-                <div className="w-6 h-6 text-rose-600 mt-1 drop-shadow-md">
-                  <MapPin className="w-6 h-6 fill-rose-600 text-white" />
-                </div>
-              </div>
-
-              {/* Bottom directions CTA overlay */}
               <a
                 href="https://maps.google.com/?q=S+Mall+Main+Road+Edakkara"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 shadow-md hover:text-[#0E5EC8] transition-colors flex items-center gap-1.5"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-xl bg-white/95 px-4 py-3 text-xs font-bold text-slate-800 shadow-lg backdrop-blur-md transition-colors hover:text-[#0E5EC8]"
               >
-                <span>Open in Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#F9B00C]" />
+                Open in Google Maps
+                <ExternalLink className="h-3.5 w-3.5 text-[#F9B00C]" />
               </a>
             </div>
-
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { Film, Utensils, Layers } from "lucide-react";
 
 import heroImagePng from "../../assets/homepage/heroimage.png";
 import heroJpeg from "../../assets/homepage/hero.jpeg";
-import hroic2Jpeg from "../../assets/homepage/hroic2.jpeg";
+import hroic2Jpeg from "../../assets/homepage/hero2.png";
 
 const HERO_SLIDES = [
   {

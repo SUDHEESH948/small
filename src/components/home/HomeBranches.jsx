@@ -13,7 +13,7 @@ import {
   Phone,
 } from "lucide-react";
 
-import hroic2Img from "../../assets/homepage/hroic2.jpeg";
+import hroic2Img from "../../assets/homepage/hero2.png";
 import heroImg from "../../assets/homepage/hero.jpeg";
 
 const ACCESS_ROUTES = [

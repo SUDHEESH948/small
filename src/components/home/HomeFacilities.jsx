@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import escalaterImg from "../../assets/escalater.jpeg";
-import hroic2Img from "../../assets/homepage/hroic2.jpeg";
+import hroic2Img from "../../assets/homepage/hero2.png";
 
 const FACILITIES = [
   {

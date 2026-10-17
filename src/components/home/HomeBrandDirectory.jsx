@@ -20,6 +20,8 @@ import boutiqueImg from "../../assets/botique.jpeg";
 import lenoraImg from "../../assets/lenorafancy.jpeg";
 import surprezToysImg from "../../assets/surpreztoys.jpeg";
 import massageChairImage from "../../assets/MassageChair.png";
+import AmadoBeautyParlour from "../../assets/AmadoBeautyParlour.png";
+
 const STORES = [
   {
     id: "magic-frames",
@@ -96,12 +98,11 @@ const STORES = [
   },
   {
     id: "premium-salon",
-    name: "Premium Salon & Spa",
+    name: "Amado Beauty Parlour",
     category: "Lifestyle",
     floor: "Level 2",
     tagline: "Hair Styling, Skincare & Bridal Grooming",
-    image:
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
+    image: AmadoBeautyParlour,
     fallback: "/images/about.webp",
     badge: "Self-Care",
     badgeColor: "bg-purple-100 text-purple-800 border border-purple-300",
