@@ -74,7 +74,7 @@ const HIGHLIGHTS = [
         src: boutiqueImg,
         fallback: "/images/botique.jpeg",
         alt: "Fashion & Lifestyle preview 2 - Designer Boutique",
-        label: "Fashion Boutique",
+        label: "B for u Boutique",
       },
       {
         src: lenoraImg,

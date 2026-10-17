@@ -17,7 +17,7 @@ const FACILITIES = [
   {
     icon: Car,
     title: "Ample Dedicated Parking",
-    capacity: "200+ Vehicles",
+    capacity: "100+ Vehicles",
     badge: "Surface & Basement",
     image:
       "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=1200&q=80",
@@ -135,7 +135,8 @@ export default function HomeFacilities() {
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = facility.fallback || "/images/about.webp";
+                        e.currentTarget.src =
+                          facility.fallback || "/images/about.webp";
                       }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />

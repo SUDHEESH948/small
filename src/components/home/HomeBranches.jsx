@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  MapPin, 
-  Navigation, 
-  Route, 
-  ExternalLink, 
-  Car, 
-  Compass, 
+import {
+  MapPin,
+  Navigation,
+  Route,
+  ExternalLink,
+  Car,
+  Compass,
   Sparkles,
   ArrowRight,
   Clock,
-  Phone
+  Phone,
 } from "lucide-react";
 
 import hroic2Img from "../../assets/homepage/hroic2.jpeg";
@@ -54,9 +54,11 @@ export default function HomeBranches() {
   const current = ACCESS_ROUTES[activeRoute];
 
   return (
-    <section id="location-accessibility" className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden">
+    <section
+      id="location-accessibility"
+      className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <motion.div
@@ -76,7 +78,9 @@ export default function HomeBranches() {
             className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight"
           >
             Effortless to Reach, <br />
-            <span className="text-[#0E5EC8]">Right in the Heart of Edakkara.</span>
+            <span className="text-[#0E5EC8]">
+              Right in the Heart of Edakkara.
+            </span>
           </motion.h2>
 
           <motion.p
@@ -85,17 +89,16 @@ export default function HomeBranches() {
             viewport={{ once: true }}
             className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
           >
-            Positioned right at the high-traffic junction of two primary Kerala thoroughfares, S Mall offers seamless entry from all directions.
+            Positioned right at the high-traffic junction of two primary Kerala
+            thoroughfares, S Mall offers seamless entry from all directions.
           </motion.p>
         </div>
 
         {/* Location Interactive Showcase Box */}
         <div className="bg-[#F5F7FA] rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
             {/* Left Column: Route Details */}
             <div className="lg:col-span-6 space-y-6">
-              
               {/* Route Selector Buttons */}
               <div className="flex flex-wrap gap-2.5">
                 {ACCESS_ROUTES.map((route, idx) => (
@@ -164,7 +167,6 @@ export default function HomeBranches() {
                   <span>Call: +91 94471 75232</span>
                 </a>
               </div>
-
             </div>
 
             {/* Right Column: Visual Photo & Landmarks card */}
@@ -195,24 +197,25 @@ export default function HomeBranches() {
               {/* 3 Quick Distance Guide Pills */}
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-400 font-medium">From Nilambur</div>
-                  <div className="text-sm font-black text-slate-900 mt-0.5">~15 km</div>
+                  <div className="text-xs text-slate-400 font-medium">
+                    From Nilambur
+                  </div>
+                  <div className="text-sm font-black text-slate-900 mt-0.5">
+                    ~13 km
+                  </div>
                 </div>
                 <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-400 font-medium">From Vazhikadavu</div>
-                  <div className="text-sm font-black text-slate-900 mt-0.5">~9 km</div>
-                </div>
-                <div className="bg-white p-3.5 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-400 font-medium">From Gudalur</div>
-                  <div className="text-sm font-black text-slate-900 mt-0.5">~35 km</div>
+                  <div className="text-xs text-slate-400 font-medium">
+                    From Vazhikadavu
+                  </div>
+                  <div className="text-sm font-black text-slate-900 mt-0.5">
+                    ~4 km
+                  </div>
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

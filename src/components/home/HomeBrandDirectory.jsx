@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Store, 
-  Sparkles, 
-  ArrowRight, 
-  MapPin, 
-  Utensils, 
-  Film, 
-  ShoppingBag, 
+import {
+  Store,
+  Sparkles,
+  ArrowRight,
+  MapPin,
+  Utensils,
+  Film,
+  ShoppingBag,
   Scissors,
   Gamepad2,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 import magicFramesImg from "../../assets/magicframes.jpeg";
@@ -19,7 +19,7 @@ import mayoodiyaImg from "../../assets/mayoodiyajewellery.jpeg";
 import boutiqueImg from "../../assets/botique.jpeg";
 import lenoraImg from "../../assets/lenorafancy.jpeg";
 import surprezToysImg from "../../assets/surpreztoys.jpeg";
-
+import massageChairImage from "../../assets/MassageChair.png";
 const STORES = [
   {
     id: "magic-frames",
@@ -39,7 +39,8 @@ const STORES = [
     category: "Dining",
     floor: "Ground Floor",
     tagline: "Fresh Hot Chicken, Burgers & Treats",
-    image: "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?auto=format&fit=crop&w=800&q=80",
     fallback: "/images/dining.webp",
     badge: "Open Daily",
     badgeColor: "bg-red-600 text-white",
@@ -59,7 +60,7 @@ const STORES = [
   },
   {
     id: "boutiques",
-    name: "Fashion Boutique",
+    name: "B for U Boutique",
     category: "Shopping",
     floor: "First Floor",
     tagline: "Designer Ethnic Wear & Modern Apparel",
@@ -99,7 +100,8 @@ const STORES = [
     category: "Lifestyle",
     floor: "Level 2",
     tagline: "Hair Styling, Skincare & Bridal Grooming",
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
     fallback: "/images/about.webp",
     badge: "Self-Care",
     badgeColor: "bg-purple-100 text-purple-800 border border-purple-300",
@@ -111,7 +113,8 @@ const STORES = [
     category: "Dining",
     floor: "Level 2",
     tagline: "Authentic Malabar, Continental & Quick Bites",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
     fallback: "/images/dining-800.webp",
     badge: "Coming Soon",
     badgeColor: "bg-amber-500 text-slate-950",
@@ -123,7 +126,8 @@ const STORES = [
     category: "Shopping",
     floor: "First Floor",
     tagline: "Fresh Produce, Groceries & Daily Needs",
-    image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=800&q=80",
     fallback: "/images/shopping-800.webp",
     badge: "Coming Soon",
     badgeColor: "bg-sky-500 text-white",
@@ -135,15 +139,33 @@ const STORES = [
     category: "Entertainment",
     floor: "Level 2",
     tagline: "VR Simulations, Racing & Arcade Fun",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
     fallback: "/images/entertainment-800.webp",
     badge: "Coming Soon",
     badgeColor: "bg-indigo-600 text-white",
     link: "/experiences",
   },
+  {
+    id: "massage-chair",
+    name: "Malik Massage Chair",
+    category: "Lifestyle",
+    floor: "First Floor",
+    tagline: "Premium Massage Chairs for Ultimate Comfort & Relaxation",
+    image: massageChairImage,
+    fallback: "/images/massage-chair-800.webp",
+    badgeColor: "bg-sky-500 text-white",
+    link: "/explore",
+  },
 ];
 
-const CATEGORIES = ["All Brands", "Shopping", "Dining", "Entertainment", "Lifestyle"];
+const CATEGORIES = [
+  "All Brands",
+  "Shopping",
+  "Dining",
+  "Entertainment",
+  "Lifestyle",
+];
 
 export default function HomeBrandDirectory() {
   const [selectedCategory, setSelectedCategory] = useState("All Brands");
@@ -154,9 +176,11 @@ export default function HomeBrandDirectory() {
   });
 
   return (
-    <section id="brand-directory" className="py-20 sm:py-28 bg-[#F5F7FA] border-t border-slate-200 relative overflow-hidden">
+    <section
+      id="brand-directory"
+      className="py-20 sm:py-28 bg-[#F5F7FA] border-t border-slate-200 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header (Forum Kochi Store Finder Style) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="max-w-2xl">
@@ -186,7 +210,8 @@ export default function HomeBrandDirectory() {
               viewport={{ once: true }}
               className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
             >
-              Browse marquee cinema, world-class fast food, jewellery, and fashion labels across our three retail levels.
+              Browse marquee cinema, world-class fast food, jewellery, and
+              fashion labels across our three retail levels.
             </motion.p>
           </div>
 
@@ -252,7 +277,9 @@ export default function HomeBrandDirectory() {
 
                     {/* Top Floating Badge */}
                     <div className="absolute top-3.5 right-3.5">
-                      <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs ${store.badgeColor}`}>
+                      <span
+                        className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs ${store.badgeColor}`}
+                      >
                         {store.badge}
                       </span>
                     </div>
@@ -296,9 +323,7 @@ export default function HomeBrandDirectory() {
             ))}
           </AnimatePresence>
         </div>
-
       </div>
     </section>
   );
 }
-
