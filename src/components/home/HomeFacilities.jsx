@@ -165,16 +165,6 @@ export default function HomeFacilities() {
                   </div>
 
                   {/* Feature Checklist */}
-                  <div className="p-6 sm:p-7 space-y-3">
-                    {facility.points.map((pt, pIdx) => (
-                      <div key={pIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm font-medium text-slate-700">
-                          {pt}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             );
@@ -182,28 +172,6 @@ export default function HomeFacilities() {
         </div>
 
         {/* Bottom Fast Info Banner */}
-        <div className="mt-10 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-[#0E5EC8]/10 text-[#0E5EC8] flex items-center justify-center shrink-0">
-              <Clock className="w-5 h-5 text-[#0E5EC8]" />
-            </div>
-            <div>
-              <div className="text-sm font-black text-slate-900">
-                Operating 7 Days a Week
-              </div>
-              <div className="text-xs text-slate-500">
-                10:00 AM to 10:00 PM Daily · Main Road Edakkara
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-bold text-slate-700">
-              All Facilities Open & Fully Operational
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );
