@@ -227,7 +227,7 @@ export default function ContactSection() {
             <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               Get in touch.
               <br />
-              <span className="font-normal italic text-sky-400">
+              <span className="text-[#F9B00C]">
                 We're here to help.
               </span>
             </h1>
@@ -275,7 +275,7 @@ export default function ContactSection() {
                     We'd love to hear from you
                   </span>
                   <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">
-                    Send us a message.
+                    Send us a <span className="text-[#0E5EC8]">message.</span>
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">
                     Complete the form below to prepare your enquiry in WhatsApp.

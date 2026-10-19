@@ -201,7 +201,7 @@ export default function RentalsPage() {
           
           <div className="mb-10">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Available Opportunities
+              Available <span className="text-[#0E5EC8]">Opportunities</span>
             </h2>
           </div>
 
@@ -256,8 +256,9 @@ export default function RentalsPage() {
         </div>
 
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-5">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Let's build something great together.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+            Let's Build Something <br />
+            <span className="text-[#F9B00C]">Great Together.</span>
           </h2>
           <div>
             <button
@@ -281,7 +282,7 @@ export default function RentalsPage() {
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Enquire About Space
+                  Enquire About <span className="text-[#0E5EC8]">Space</span>
                 </h2>
               </div>
 

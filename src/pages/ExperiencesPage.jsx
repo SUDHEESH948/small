@@ -56,7 +56,7 @@ export default function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              At the Movies
+              At the Movies <span className="text-[#0E5EC8]">& Cinema</span>
             </h2>
             <a
               href="https://in.bookmyshow.com"
@@ -143,7 +143,7 @@ export default function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Food & Dining
+              Food & <span className="text-[#0E5EC8]">Dining</span>
             </h2>
             <button
               onClick={() => navigate("/explore")}
@@ -215,7 +215,7 @@ export default function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Family Fun
+              Family <span className="text-[#0E5EC8]">Fun</span>
             </h2>
             <button
               onClick={() => navigate("/explore")}
@@ -285,7 +285,7 @@ export default function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Lifestyle & Wellness
+              Lifestyle & <span className="text-[#0E5EC8]">Wellness</span>
             </h2>
             <button
               onClick={() => navigate("/explore")}
@@ -381,8 +381,9 @@ export default function ExperiencesPage() {
         </div>
 
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10  p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Make more memories here.
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            Make More Memories <br />
+            <span className="text-[#F9B00C]">Here at S Mall.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto leading-relaxed">
             From movie nights to family outings, S mall is your destination for

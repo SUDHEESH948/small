@@ -33,7 +33,7 @@ export default function HomeExperiences() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#0E5EC8] bg-[#0E5EC8]/10 px-3.5 py-1.5 rounded-full mb-3"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#0E5EC8] bg-[#0E5EC8]/10 px-3.5 py-1.5 rounded-full mb-3"
             >
               <Film className="w-3.5 h-3.5 text-[#F9B00C]" />
               <span>Entertainment & Leisure</span>
@@ -46,7 +46,7 @@ export default function HomeExperiences() {
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight"
             >
               Experiences <br />
-              <span className="text-[#F9B00C]">Beyond Shopping.</span>
+              <span className="text-[#0E5EC8]">Beyond Shopping.</span>
             </motion.h2>
 
             <motion.p
@@ -95,14 +95,14 @@ export default function HomeExperiences() {
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/15">
             <div className="space-y-3 max-w-2xl">
-              <span className="bg-[#F9B00C] text-slate-950 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-md inline-block shadow-sm">
+              <span className="bg-[#F9B00C] text-slate-950 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-md inline-block shadow-sm">
                 Now Showing & Premieres
               </span>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
                 Magic Frames Cinemas
               </h3>
-              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-                Big Movies, Bigger Experiences. Watch the latest blockbuster
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                <span className="text-white text-base sm:text-lg font-bold">Big Movies, Bigger Experiences.</span> Watch the latest blockbuster
                 releases with cutting-edge digital projection, crystal-clear
                 surround sound, and comfortable push-back seating right here in
                 Edakkara.
@@ -134,7 +134,7 @@ export default function HomeExperiences() {
                 href="https://www.district.in/movies/magic-frames-cinemas-s-mall-edakkara-CD1088547?srsltid=AU7gw4ULPeA0teazNxAzOJ9bMmZ6q2MDw_2cf8jur613BYWOWrxFmuPI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-slate-950 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-slate-950 px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
               >
                 <span>BOOK TICKETS</span>
                 <ArrowRight className="w-4 h-4" />
@@ -166,7 +166,7 @@ export default function HomeExperiences() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute top-3 left-3">
-                <span className="bg-[#0E5EC8] text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                <span className="bg-[#0E5EC8] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
                   Food & Dining
                 </span>
               </div>
@@ -174,7 +174,7 @@ export default function HomeExperiences() {
 
             <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
-                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                <h4 className="text-xl font-bold text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                   KFC & Multi-Cuisine Food Court
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -210,7 +210,7 @@ export default function HomeExperiences() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute top-3 left-3">
-                <span className="bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                <span className="bg-amber-500 text-slate-950 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
                   Kids & Gaming
                 </span>
               </div>
@@ -218,7 +218,7 @@ export default function HomeExperiences() {
 
             <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
-                <h4 className="text-xl font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                <h4 className="text-xl font-bold text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                   Surprez Toys & Kids Zone
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -254,7 +254,7 @@ export default function HomeExperiences() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute top-3 left-3">
-                <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
+                <span className="bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
                   Beauty & Wellness
                 </span>
               </div>
@@ -262,11 +262,11 @@ export default function HomeExperiences() {
 
             <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
-                <h4 className="text-xl font-black text-slate-900 transition-colors group-hover:text-[#0E5EC8]">
-                  Amado Amado Beauty Parlour(Unisex Salon)
+                <h4 className="text-xl font-bold text-slate-900 transition-colors group-hover:text-[#0E5EC8]">
+                  Amado Beauty Parlour (Unisex Salon)
                 </h4>
 
-                <p className="text-xs sm:text-sm font-normal leading-relaxed text-slate-600">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
                   Professional haircuts, styling, hair care, skincare, bridal
                   makeup, and premium grooming services for men and women,
                   located on Level 2.

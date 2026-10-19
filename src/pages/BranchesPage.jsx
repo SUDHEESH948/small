@@ -495,7 +495,7 @@ export default function BranchesPage() {
                   <Building2 className="w-5 h-5" />
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Mall Directory.
+                  Mall Directory <span className="text-[#0E5EC8]">& Stores.</span>
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">

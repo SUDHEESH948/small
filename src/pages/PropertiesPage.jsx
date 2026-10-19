@@ -250,8 +250,9 @@ export default function PropertiesPage() {
               <Building2 className="w-3.5 h-3.5" />
               <span>S. Mall Edakkara • 2D Architectural Floor Inventory</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
-              Commercial Floor Diagrams & Leasing Inventory
+            <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 leading-tight">
+              Commercial Floor Diagrams <br />
+              <span className="text-[#0E5EC8]">& Leasing Inventory</span>
             </h1>
             <p className="text-sm text-slate-500 mt-1 max-w-3xl leading-relaxed">
               Explore authentic 2D architectural layout diagrams, available commercial wings, reserved spaces, and retail shop allocations across all three floors of S. Mall.
@@ -470,7 +471,7 @@ export default function PropertiesPage() {
                 Complete Mall Blueprint
               </span>
               <h2 className="text-2xl font-black text-slate-900 mt-2">
-                All Floors Architectural Layout Overview
+                All Floors <span className="text-[#0E5EC8]">Architectural Layout Overview</span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
                 Full 3-level comparative layout displaying Ground Floor, First Floor, and Second Floor side-by-side.
@@ -524,8 +525,9 @@ export default function PropertiesPage() {
             <span className="text-xs font-bold uppercase tracking-wider text-[#F9B00C]">
               Direct Mall Leasing Desk
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-              Enquire for Commercial Space or Site Inspection
+            <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
+              Enquire for Commercial Space <br />
+              <span className="text-[#F9B00C]">or Site Inspection</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Connect directly with S. Mall Management for bespoke unit configurations, contiguous floor allocations, pre-lease terms, or to schedule an in-person site walkthrough.
