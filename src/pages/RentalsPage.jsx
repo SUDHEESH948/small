@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { 
   Building2, 
   Users, 
@@ -145,51 +146,48 @@ export default function RentalsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            
-            {/* 1. Prime location */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0E5EC8] flex items-center justify-center mx-auto mb-3">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Prime location</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                High visibility and easy access on State Highway & Malayora Highway.
-              </p>
-            </div>
-
-            {/* 2. Large catchment */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0E5EC8] flex items-center justify-center mx-auto mb-3">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Large catchment</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Families, professionals, daily commuters and interstate travelers.
-              </p>
-            </div>
-
-            {/* 3. Ample parking */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0E5EC8] flex items-center justify-center mx-auto mb-3">
-                <Car className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Ample parking</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Spacious and well-organised surface & basement bays.
-              </p>
-            </div>
-
-            {/* 4. Premium ambience */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0E5EC8] flex items-center justify-center mx-auto mb-3">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Premium ambience</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Modern, climate-regulated and impeccably well-maintained complex.
-              </p>
-            </div>
-
+            {[
+              {
+                icon: MapPin,
+                title: "Prime location",
+                desc: "High visibility and easy access on State Highway & Malayora Highway.",
+              },
+              {
+                icon: Users,
+                title: "Large catchment",
+                desc: "Families, professionals, daily commuters and interstate travelers.",
+              },
+              {
+                icon: Car,
+                title: "Ample parking",
+                desc: "Spacious and well-organised surface & basement bays.",
+              },
+              {
+                icon: Building2,
+                title: "Premium ambience",
+                desc: "Modern, climate-regulated and impeccably well-maintained complex.",
+              },
+            ].map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-[#0E5EC8]/30 hover:bg-white hover:-translate-y-2 hover:shadow-xl transition-all duration-300 space-y-2.5 group cursor-default"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0E5EC8] group-hover:bg-[#0E5EC8] group-hover:text-white flex items-center justify-center mx-auto mb-3 transition-colors duration-300 shadow-xs">
+                    <Icon className="w-6 h-6 transition-transform group-hover:scale-110 duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0E5EC8] transition-colors">{feature.title}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>
@@ -207,16 +205,22 @@ export default function RentalsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {opportunities.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#0E5EC8]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.45, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#0E5EC8]/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer"
+                onClick={scrollToForm}
               >
                 <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
@@ -234,11 +238,11 @@ export default function RentalsPage() {
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E5EC8] group-hover:text-blue-800 transition-colors"
                     >
                       <span>Enquire space</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -255,7 +259,13 @@ export default function RentalsPage() {
           />
         </div>
 
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-5">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-slate-950/75 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/15 shadow-2xl space-y-5 hover:border-white/25 transition-all duration-300"
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
             Let's Build Something <br />
             <span className="text-[#F9B00C]">Great Together.</span>
@@ -269,7 +279,7 @@ export default function RentalsPage() {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 5. "Enquire About Space" Form Section matching screenshot */}
@@ -417,11 +427,17 @@ export default function RentalsPage() {
             </div>
 
             {/* Right Column: "Your brand belongs here." Vertical Card matching screenshot */}
-            <div className="lg:col-span-5 relative min-h-[420px] rounded-3xl overflow-hidden shadow-xl border border-slate-200">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5 relative min-h-[420px] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-slate-200 group transition-all duration-300"
+            >
               <img
                 src="/images/about.webp"
                 alt="Brand Storefront"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
@@ -433,7 +449,7 @@ export default function RentalsPage() {
                   Join premier brands thriving in S mall's high-traffic commercial retail environment.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
@@ -444,7 +460,7 @@ export default function RentalsPage() {
       <div className="border-t border-slate-200 bg-[#F5F7FA]">
         <PropertySection
           title="Available Rental Units at S mall Edakkara"
-          subtitle="Explore turnkey retail shops, food units, private suites, and storage spaces with transparent monthly rents and security deposits."
+          subtitle="Explore turnkey retail shops, food units, private suites, and storage spaces available for commercial lease."
           category="rent"
           propertyTypeFilter={typeParam}
           branchId={branchParam}

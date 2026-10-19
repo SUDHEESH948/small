@@ -315,18 +315,18 @@ export default function Navbar() {
             : "border-b border-slate-100 py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2">
             {/* Small Mall logo */}
             <Link
               to="/"
-              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5EC8] rounded-xl -ml-1 sm:ml-0"
+              className="flex items-center shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5EC8] rounded-xl -ml-1 sm:ml-0"
               aria-label="Small Mall - Home"
             >
               <img
                 src="/logo/small-logo-horizontal.png"
                 alt="Small Mall Logo"
-                className="h-9 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                className="h-8 sm:h-10 w-auto max-w-[130px] min-[380px]:max-w-none object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </Link>
 
@@ -374,10 +374,10 @@ export default function Navbar() {
             </div>
 
             {/* Mobile actions */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
               <Link
                 to="/contact"
-                className="sm:hidden bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm transition-colors"
+                className="sm:hidden bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] text-[11px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm transition-colors whitespace-nowrap"
               >
                 Contact
               </Link>
@@ -385,7 +385,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen((previous) => !previous)}
-                className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5EC8]"
+                className="w-9 h-9 shrink-0 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E5EC8]"
                 aria-label={
                   mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
                 }

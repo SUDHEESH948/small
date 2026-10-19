@@ -221,7 +221,7 @@ export default function HomeAdvantages() {
         </div>
 
         {/* 4 Interactive Category Selector Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10">
           {HIGHLIGHTS.map((item, index) => {
             const Icon = item.icon;
             const isSelected = activeTab === index;
@@ -230,7 +230,7 @@ export default function HomeAdvantages() {
               <button
                 key={item.id}
                 onClick={() => handleTabChange(index)}
-                className={`text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 border flex flex-col justify-between gap-3 cursor-pointer ${
+                className={`text-left p-3 sm:p-5 rounded-2xl transition-all duration-300 border flex flex-col justify-between gap-2.5 sm:gap-3 cursor-pointer ${
                   isSelected
                     ? "bg-[#0E5EC8] text-white border-[#0E5EC8] shadow-lg shadow-blue-900/15 -translate-y-1"
                     : "bg-white text-slate-700 border-slate-200/80 hover:border-slate-300 hover:bg-slate-50"

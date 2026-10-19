@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   Layers,
   Maximize2,
@@ -303,10 +304,14 @@ export default function PropertiesPage() {
 
         {/* 2D Architectural Floor Diagrams & Space Breakdowns */}
         <div className="space-y-12">
-          {filteredFloors.map((floorGroup) => (
-            <section
+          {filteredFloors.map((floorGroup, fIdx) => (
+            <motion.section
               key={floorGroup.id}
-              className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: fIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
             >
               {/* Floor Section Header */}
               <div className="bg-slate-50/80 border-b border-slate-200 px-6 py-5 flex flex-wrap items-center justify-between gap-4">
@@ -352,7 +357,7 @@ export default function PropertiesPage() {
                       floorGroup.tagline
                     )
                   }
-                  className="relative rounded-2xl bg-[#FAF8F3] border border-slate-200 overflow-hidden cursor-pointer group flex items-center justify-center p-4 min-h-[300px] sm:min-h-[380px] shadow-inner select-none"
+                  className="relative rounded-2xl bg-[#FAF8F3] border border-slate-200 overflow-hidden cursor-pointer group flex items-center justify-center p-4 min-h-[300px] sm:min-h-[380px] shadow-inner select-none transition-all duration-300 hover:border-[#0E5EC8]/30"
                   title={`Click to enlarge ${floorGroup.floor} 2D Diagram`}
                 >
                   <img
@@ -384,9 +389,13 @@ export default function PropertiesPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {floorGroup.zones.map((zone, idx) => (
-                    <div
+                    <motion.div
                       key={idx}
-                      className="flex flex-col justify-between bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 overflow-hidden p-5"
+                      initial={{ opacity: 0, y: 22 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-30px" }}
+                      transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex flex-col justify-between bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-[#0E5EC8]/40 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 overflow-hidden p-5 group"
                     >
                       <div className="space-y-3">
                         {/* Status Badge & Sq Ft */}
@@ -402,7 +411,7 @@ export default function PropertiesPage() {
                         </div>
 
                         {/* Zone Name */}
-                        <h4 className="font-bold text-slate-900 text-base leading-snug">
+                        <h4 className="font-bold text-slate-900 text-base leading-snug group-hover:text-[#0E5EC8] transition-colors">
                           {zone.name}
                         </h4>
 
@@ -419,7 +428,7 @@ export default function PropertiesPage() {
                         </p>
 
                         {/* Highlight */}
-                        <div className="text-[11px] text-indigo-700 font-medium bg-indigo-50/60 p-2 rounded-lg border border-indigo-100 flex items-start gap-1.5">
+                        <div className="text-[11px] text-indigo-700 font-medium bg-indigo-50/60 p-2 rounded-lg border border-indigo-100 flex items-start gap-1.5 group-hover:bg-indigo-50 transition-colors">
                           <Sparkles className="w-3.5 h-3.5 text-indigo-600 shrink-0 mt-0.5" />
                           <span>{zone.highlight}</span>
                         </div>
@@ -449,22 +458,28 @@ export default function PropertiesPage() {
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-200 transition-colors"
+                          className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-200 transition-colors active:scale-95"
                         >
                           <MessageSquare className="w-3 h-3" />
                           <span>Enquire</span>
                         </a>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </section>
+            </motion.section>
           ))}
         </div>
 
         {/* Master Blueprint Card (All Floors side-by-side) */}
-        <section className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6 sm:p-8">
+        <motion.section
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 overflow-hidden p-6 sm:p-8"
+        >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">
@@ -486,7 +501,7 @@ export default function PropertiesPage() {
                   masterBlueprintData.highlights
                 )
               }
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0E5EC8] hover:bg-[#0b4ca0] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0E5EC8] hover:bg-[#0b4ca0] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer active:scale-95"
             >
               <Maximize2 className="w-3.5 h-3.5 text-[#F9B00C]" />
               <span>Enlarge Master Blueprint</span>
@@ -501,7 +516,7 @@ export default function PropertiesPage() {
                 masterBlueprintData.highlights
               )
             }
-            className="relative rounded-2xl bg-[#FAF8F3] border border-slate-200 overflow-hidden cursor-pointer group flex items-center justify-center p-4 min-h-[320px] sm:min-h-[420px] shadow-inner select-none"
+            className="relative rounded-2xl bg-[#FAF8F3] border border-slate-200 overflow-hidden cursor-pointer group flex items-center justify-center p-4 min-h-[320px] sm:min-h-[420px] shadow-inner select-none transition-all duration-300 hover:border-[#0E5EC8]/30"
             title="Click to Enlarge Complete 3-Level Blueprint"
           >
             <img
@@ -517,10 +532,16 @@ export default function PropertiesPage() {
               </span>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Direct Leasing Desk & Custom Space Advisory */}
-        <section className="bg-gradient-to-r from-slate-900 to-blue-950 rounded-2xl p-6 sm:p-10 text-white flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+        <motion.section
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-gradient-to-r from-slate-900 to-blue-950 rounded-2xl p-6 sm:p-10 text-white flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl relative overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+        >
           <div className="relative z-10 max-w-2xl space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#F9B00C]">
               Direct Mall Leasing Desk
@@ -556,7 +577,7 @@ export default function PropertiesPage() {
 
           {/* Decorative background accent */}
           <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
-        </section>
+        </motion.section>
 
       </div>
 

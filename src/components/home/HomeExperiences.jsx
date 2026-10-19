@@ -25,7 +25,7 @@ export default function HomeExperiences() {
       id="mall-experiences"
       className="py-20 sm:py-28 bg-white border-t border-slate-200 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
@@ -80,7 +80,7 @@ export default function HomeExperiences() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[380px] sm:min-h-[460px] flex items-end p-6 sm:p-12 mb-8 group"
+          className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[380px] sm:min-h-[460px] flex items-end p-3.5 sm:p-8 lg:p-12 mb-8 group"
         >
           <img
             src={magicFramesImg}
@@ -93,7 +93,7 @@ export default function HomeExperiences() {
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/15">
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-4 sm:p-8 rounded-2xl border border-white/15">
             <div className="space-y-3 max-w-2xl">
               <span className="bg-[#F9B00C] text-slate-950 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-md inline-block shadow-sm">
                 Now Showing & Premieres

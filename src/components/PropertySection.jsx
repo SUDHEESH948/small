@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { 
   Building2, 
   MapPin, 
@@ -43,8 +44,6 @@ export default function PropertySection({
   const [selectedCategory, setSelectedCategory] = useState(category);
   const [selectedType, setSelectedType] = useState(propertyTypeFilter);
   const [selectedBranch, setSelectedBranch] = useState(branchId || "all");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
   const [minArea, setMinArea] = useState("");
   const [maxArea, setMaxArea] = useState("");
   const [availabilityOnly, setAvailabilityOnly] = useState(true);
@@ -129,13 +128,6 @@ export default function PropertySection({
       );
     }
 
-    if (minPrice !== "" && !isNaN(Number(minPrice))) {
-      list = list.filter(p => p.price >= Number(minPrice));
-    }
-    if (maxPrice !== "" && !isNaN(Number(maxPrice))) {
-      list = list.filter(p => p.price <= Number(maxPrice));
-    }
-
     if (minArea !== "" && !isNaN(Number(minArea))) {
       list = list.filter(p => p.area >= Number(minArea));
     }
@@ -158,8 +150,6 @@ export default function PropertySection({
     featuredOnly, 
     recentOnly, 
     searchTerm, 
-    minPrice, 
-    maxPrice, 
     minArea, 
     maxArea, 
     limit
@@ -170,15 +160,13 @@ export default function PropertySection({
     setResultsFading(true);
     const timer = setTimeout(() => setResultsFading(false), 200);
     return () => clearTimeout(timer);
-  }, [selectedCategory, selectedType, selectedBranch, minPrice, maxPrice, minArea, maxArea, searchTerm, availabilityOnly]);
+  }, [selectedCategory, selectedType, selectedBranch, minArea, maxArea, searchTerm, availabilityOnly]);
 
   const resetFilters = () => {
     setSearchTerm("");
     if (category === "all") setSelectedCategory("all");
     setSelectedType("all");
     if (!branchId) setSelectedBranch("all");
-    setMinPrice("");
-    setMaxPrice("");
     setMinArea("");
     setMaxArea("");
     setAvailabilityOnly(true);
@@ -189,8 +177,6 @@ export default function PropertySection({
     (category === "all" && selectedCategory !== "all") ||
     selectedType !== "all" ||
     (!branchId && selectedBranch !== "all") ||
-    minPrice !== "" ||
-    maxPrice !== "" ||
     minArea !== "" ||
     maxArea !== "";
 
@@ -201,7 +187,7 @@ export default function PropertySection({
 
   const handleWhatsAppEnquiry = (property) => {
     const text = encodeURIComponent(
-      `Hello Small Mall Management, I would like to enquire about: ${property.name} (Ref ID: ${property.id}) at ${getBranchName(property.branchId)}. Price: ${property.priceLabel}. Please share further details and site viewing options.`
+      `Hello Small Mall Management, I would like to enquire about: ${property.name} (Ref ID: ${property.id}) at ${getBranchName(property.branchId)}. Please share availability, lease terms, and site viewing options.`
     );
     window.open(`https://wa.me/919447175232?text=${text}`, '_blank');
   };
@@ -338,7 +324,7 @@ export default function PropertySection({
             </div>
 
             {/* Expandable Advanced Filters Drawer */}
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-3 border-t border-slate-100 transition-all duration-300 ${
+            <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-3 border-t border-slate-100 transition-all duration-300 ${
               filtersOpen ? 'block opacity-100' : 'hidden md:grid opacity-100'
             }`}>
               {/* Branch Filter */}
@@ -374,30 +360,6 @@ export default function PropertySection({
                     <option key={t} value={t}>{t}</option>
                   ))}
                 </select>
-              </div>
-
-              {/* Price Range Filter */}
-              <div>
-                <label className="block text-xs font-bold text-slate-600 mb-1.5">
-                  Price / Budget (₹)
-                </label>
-                <div className="flex items-center gap-1.5">
-                  <input
-                    type="number"
-                    value={minPrice}
-                    onChange={(e) => setMinPrice(e.target.value)}
-                    placeholder="Min ₹"
-                    className="w-1/2 px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:ring-2 focus:ring-[#0E5EC8]"
-                  />
-                  <span className="text-slate-400 text-xs">-</span>
-                  <input
-                    type="number"
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(e.target.value)}
-                    placeholder="Max ₹"
-                    className="w-1/2 px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:ring-2 focus:ring-[#0E5EC8]"
-                  />
-                </div>
               </div>
 
               {/* Area Range Filter */}
@@ -461,10 +423,13 @@ export default function PropertySection({
               const isImgLoaded = loadedImages[property.id];
 
               return (
-                <div
+                <motion.div
                   key={property.id}
-                  style={{ animationDelay: `${staggerDelay}ms` }}
-                  className="group bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] hover:border-[#0E5EC8]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col will-change-transform"
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.25), ease: [0.22, 1, 0.36, 1] }}
+                  className="group bg-white rounded-2xl overflow-hidden border border-[#E2E8F0] hover:border-[#0E5EC8]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col will-change-transform"
                 >
                   {/* Fixed 4:3 Image Ratio with shimmer placeholder and gentle zoom */}
                   <div className="relative aspect-4/3 overflow-hidden bg-slate-100">
@@ -478,7 +443,7 @@ export default function PropertySection({
                       alt={property.name}
                       loading="lazy"
                       onLoad={() => handleImageLoaded(property.id)}
-                      className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out ${
+                      className={`w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out ${
                         isImgLoaded ? 'opacity-100' : 'opacity-0'
                       }`}
                     />
@@ -520,34 +485,6 @@ export default function PropertySection({
                   {/* Property Card Content */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
-                      
-                      {/* Price Section */}
-                      <div className="border-b border-slate-100 pb-3">
-                        <div className="flex items-baseline gap-2">
-                          <div className="text-2xl sm:text-3xl font-black text-[#0E5EC8] tracking-tight">
-                            {property.priceLabel}
-                          </div>
-                          <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">
-                            {isSale ? 'For Sale' : '/ month'}
-                          </span>
-                        </div>
-
-                        {/* Security deposit on its own dedicated line */}
-                        {!isSale && property.securityDeposit && (
-                          <div className="text-xs font-medium text-[#64748B] mt-1 flex items-center gap-1">
-                            <span>Security Deposit:</span>
-                            <strong className="text-slate-700">₹{property.securityDeposit.toLocaleString()}</strong>
-                            <span className="text-slate-400">• refundable</span>
-                          </div>
-                        )}
-
-                        {isSale && (
-                          <div className="text-xs font-medium text-[#64748B] mt-1">
-                            ₹{Math.round(property.price / property.area).toLocaleString()} / sq ft • Freehold Title
-                          </div>
-                        )}
-                      </div>
-
                       {/* Property Name */}
                       <h3 
                         onClick={() => {
@@ -604,7 +541,7 @@ export default function PropertySection({
                     </div>
 
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -672,8 +609,8 @@ export default function PropertySection({
               {/* Modal Body */}
               <div className="p-4 sm:p-6 overflow-y-auto space-y-6 pb-24 sm:pb-6">
                 
-                {/* Title & Price Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                {/* Title & Category Header */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                   <div>
                     <h2 id="property-modal-title" className="text-xl sm:text-2xl font-black text-slate-900">
                       {selectedProperty.name}
@@ -684,20 +621,16 @@ export default function PropertySection({
                     </div>
                   </div>
 
-                  <div className="sm:text-right shrink-0">
-                    <div className="text-2xl sm:text-3xl font-black text-[#0E5EC8]">
-                      {selectedProperty.priceLabel}
-                    </div>
-                    {selectedProperty.category === "rent" && selectedProperty.securityDeposit && (
-                      <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                        Security Deposit: ₹{selectedProperty.securityDeposit.toLocaleString()}
-                      </div>
-                    )}
-                    {selectedProperty.category === "sale" && (
-                      <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                        ₹{Math.round(selectedProperty.price / selectedProperty.area).toLocaleString()} / sq ft • Freehold
-                      </div>
-                    )}
+                  <div className="sm:text-right shrink-0 flex items-center sm:flex-col sm:items-end gap-2">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#0E5EC8] border border-blue-100">
+                      {selectedProperty.category === 'sale' ? 'Freehold Commercial Unit' : 'Commercial Lease Unit'}
+                    </span>
+                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-0.5 rounded-md ${
+                      selectedProperty.availability === 'Available' ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'
+                    }`}>
+                      <span className={`w-2 h-2 rounded-full ${selectedProperty.availability === 'Available' ? 'bg-emerald-500' : 'bg-rose-500'}`}></span>
+                      {selectedProperty.availability}
+                    </span>
                   </div>
                 </div>
 
@@ -795,11 +728,7 @@ export default function PropertySection({
                           <td className="p-3 font-semibold text-slate-500">Power Infrastructure</td>
                           <td className="p-3 font-bold text-slate-900">{selectedProperty.powerCapacity}</td>
                         </tr>
-                        <tr className="bg-white border-b border-slate-100">
-                          <td className="p-3 font-semibold text-slate-500">Additional Charges</td>
-                          <td className="p-3 font-bold text-slate-900">{selectedProperty.additionalCharges}</td>
-                        </tr>
-                        <tr className="bg-slate-50/70">
+                        <tr className="bg-white">
                           <td className="p-3 font-semibold text-slate-500">Listing Date</td>
                           <td className="p-3 font-bold text-slate-900">{selectedProperty.dateAdded}</td>
                         </tr>

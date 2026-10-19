@@ -38,7 +38,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
 
-      <div className="relative flex min-h-screen flex-col bg-[#F5F7FA] text-[#1F2937] selection:bg-[#F9B00C]/30 selection:text-[#0E5EC8]">
+      <div className="relative flex min-h-screen min-w-[320px] max-w-full flex-col bg-[#F5F7FA] text-[#1F2937] selection:bg-[#F9B00C]/30 selection:text-[#0E5EC8] overflow-x-hidden">
 
         {/* Common Navbar */}
         <Navbar />

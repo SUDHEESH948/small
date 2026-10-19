@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Film,
   Utensils,
@@ -70,7 +71,13 @@ export default function ExperiencesPage() {
           </div>
 
           {/* Featured Cinema Card */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 min-h-[360px] sm:min-h-[420px] flex items-end p-6 sm:p-10 group">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl bg-slate-950 min-h-[360px] sm:min-h-[420px] flex items-end p-6 sm:p-10 group border border-slate-800 hover:border-slate-700 transition-all duration-300"
+          >
             <img
               src={magicFramesImg}
               alt="Magic Frames Cinemas"
@@ -78,7 +85,7 @@ export default function ExperiencesPage() {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = "/images/magicframes.jpeg";
               }}
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
 
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 w-full bg-slate-950/75 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/15">
@@ -99,41 +106,37 @@ export default function ExperiencesPage() {
                   href="https://www.district.in/movies/magic-frames-cinemas-s-mall-edakkara-CD1088547?srsltid=AU7gw4ULPeA0teazNxAzOJ9bMmZ6q2MDw_2cf8jur613BYWOWrxFmuPI"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all"
+                  className="inline-flex items-center gap-2 bg-[#F9B00C] hover:bg-[#e5a007] text-[#1F2937] px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all"
                 >
                   <span>BOOK TICKETS</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* 4 Feature Badges Row matching screenshot */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-              <Film className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">
-                Latest Movies
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-              <Languages className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">
-                Multiple Languages
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-              <Armchair className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">
-                Comfortable Seating
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-              <Popcorn className="w-5 h-5 text-[#0E5EC8] shrink-0" />
-              <span className="text-xs font-bold text-slate-800">
-                Blockbuster Experience
-              </span>
-            </div>
+            {[
+              { icon: Film, label: "Latest Movies" },
+              { icon: Languages, label: "Multiple Languages" },
+              { icon: Armchair, label: "Comfortable Seating" },
+              { icon: Popcorn, label: "Blockbuster Experience" },
+            ].map(({ icon: Icon, label }, idx) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.06 }}
+                className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-slate-300 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex items-center gap-3 cursor-default"
+              >
+                <Icon className="w-5 h-5 text-[#0E5EC8] shrink-0" />
+                <span className="text-xs font-bold text-slate-800">
+                  {label}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -156,56 +159,68 @@ export default function ExperiencesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* KFC */}
-            <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45 }}
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col sm:flex-row items-center cursor-pointer"
+            >
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
                 <img
                   src="/images/dining.webp"
                   alt="KFC"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                 />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">
                   Fast Food & Chicken
                 </span>
-                <h3 className="text-lg font-black text-slate-900">KFC</h3>
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">KFC</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Great food for every mood. Fresh hot chicken and signature
                   treats.
                 </p>
-                <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1">
+                <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <span>Visit Store</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Food Court */}
-            <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col sm:flex-row items-center cursor-pointer"
+            >
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
                 <img
                   src="/images/dining-800.webp"
                   alt="Food Court"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                 />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">
                   Multi-Cuisine
                 </span>
-                <h3 className="text-lg font-black text-slate-900">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                   Food Court (Coming Soon)
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   A variety of cuisines under one roof, from authentic Kerala
                   delicacies to continental snacks.
                 </p>
-                <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1">
+                <div className="pt-2 text-xs font-bold text-[#0E5EC8] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <span>Explore Menu</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -228,7 +243,13 @@ export default function ExperiencesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Toys Store */}
-            <div className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45 }}
+              className="group bg-slate-50 hover:bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col sm:flex-row items-center cursor-pointer"
+            >
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-200">
                 <img
                   src={surprezToysImg}
@@ -237,14 +258,14 @@ export default function ExperiencesPage() {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "/images/surpreztoys.jpeg";
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                 />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">
                   Kids & Play
                 </span>
-                <h3 className="text-lg font-black text-slate-900">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                   Surprez Toys Store
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
@@ -252,22 +273,28 @@ export default function ExperiencesPage() {
                   explorers.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Gaming Zone */}
-            <div className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="group bg-slate-50 hover:bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col sm:flex-row items-center cursor-pointer"
+            >
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-200">
                 <img
                   src="/images/entertainment.webp"
                   alt="Gaming Zone"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                 />
               </div>
               <div className="p-6 sm:w-1/2 space-y-2">
                 <span className="text-[10px] uppercase font-bold text-amber-600 tracking-wider block">
                   Arcade & VR
                 </span>
-                <h3 className="text-lg font-black text-slate-900">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                   Gaming Zone (Coming Soon)
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
@@ -275,7 +302,7 @@ export default function ExperiencesPage() {
                   prize games.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -298,7 +325,13 @@ export default function ExperiencesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Amado Unisex Salon */}
-            <div className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg sm:flex-row">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45 }}
+              className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 sm:flex-row cursor-pointer"
+            >
               <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 sm:aspect-square sm:w-1/2">
                 <img
                   src={AmadoBeautyParlour}
@@ -308,7 +341,7 @@ export default function ExperiencesPage() {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "/images/about.webp";
                   }}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
                 />
               </div>
 
@@ -327,12 +360,16 @@ export default function ExperiencesPage() {
                   for men and women.
                 </p>
               </div>
-            </div>
-
-            {/* Shopping */}
+            </motion.div>
 
             {/* Boutique B for U */}
-            <div className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg sm:flex-row">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="group flex flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-2xl hover:border-[#0E5EC8]/40 hover:-translate-y-2 transition-all duration-300 sm:flex-row cursor-pointer"
+            >
               <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 sm:aspect-square sm:w-1/2">
                 <img
                   src={boutiqueImg}
@@ -342,7 +379,7 @@ export default function ExperiencesPage() {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "/images/botique.jpeg";
                   }}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
                 />
               </div>
 
@@ -361,7 +398,7 @@ export default function ExperiencesPage() {
                   every occasion.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

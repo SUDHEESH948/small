@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Building2,
   MapPin,
@@ -18,7 +19,6 @@ import {
   Phone,
   MessageCircle,
 } from "lucide-react";
-import BranchSection from "../components/BranchSection";
 
 import magicFramesImg from "../assets/magicframes.jpeg";
 import mayoodiyaImg from "../assets/mayoodiyajewellery.jpeg";
@@ -439,10 +439,14 @@ export default function BranchesPage() {
       <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredStores.map((store) => (
-              <div
+            {filteredStores.map((store, index) => (
+              <motion.div
                 key={store.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#0E5EC8]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.25), ease: [0.22, 1, 0.36, 1] }}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#0E5EC8]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col will-change-transform cursor-pointer"
               >
                 <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
                   <img
@@ -453,7 +457,7 @@ export default function BranchesPage() {
                       e.currentTarget.src =
                         store.fallback || "/images/shopping.webp";
                     }}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                   />
                   <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-slate-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
                     {store.badge}
@@ -474,12 +478,12 @@ export default function BranchesPage() {
                     <span className="text-[11px] font-semibold text-slate-400">
                       S mall Edakkara
                     </span>
-                    <span className="text-[#0E5EC8] group-hover:translate-x-1 transition-transform">
+                    <span className="text-[#0E5EC8] group-hover:translate-x-1.5 transition-transform duration-300">
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -1123,14 +1127,6 @@ export default function BranchesPage() {
           </div>
         </div>
       )}
-
-      {/* 5. Mall Branches Network Explorer (BranchSection) */}
-      <BranchSection
-        title="Our Mall Network & Highway Branches"
-        subtitle="Explore our commercial shopping complexes and transit junctions"
-        initialBranchId={initialBranch}
-        featuredOnly={false}
-      />
     </div>
   );
 }

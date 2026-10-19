@@ -281,7 +281,7 @@ export default function BranchSection({
 
                       <div className="space-y-1.5">
                         <div className="flex items-center justify-between">
-                          <span className="text-base font-black text-[#0E5EC8]">{p.priceLabel}</span>
+                          <span className="text-xs font-extrabold uppercase tracking-wider text-[#0E5EC8] bg-blue-50 px-2 py-0.5 rounded-md">Verified Unit</span>
                           <span className="text-xs font-bold text-slate-700">{p.area} sq ft</span>
                         </div>
                         <h5 className="text-sm font-bold text-slate-900 line-clamp-1">{p.name}</h5>
@@ -437,7 +437,6 @@ export default function BranchSection({
                 <span className="text-xs font-black text-[#0E5EC8] uppercase">{activePropertyModal.category === 'sale' ? 'For Sale' : 'For Rent'}</span>
                 <h3 className="text-lg font-black text-slate-900">{activePropertyModal.name}</h3>
                 <p className="text-xs text-slate-500">{activePropertyModal.location}</p>
-                <div className="text-2xl font-black text-[#0E5EC8] mt-2">{activePropertyModal.priceLabel}</div>
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed">{activePropertyModal.description}</p>

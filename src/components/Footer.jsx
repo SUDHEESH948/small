@@ -192,7 +192,7 @@ export default function Footer() {
             © {currentYear} <strong>S mall</strong>. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-2">
             <Link to="/contact" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>

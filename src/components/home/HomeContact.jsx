@@ -1,39 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  Navigation, 
-  Phone, 
-  MessageSquare, 
-  Clock, 
-  MapPin, 
-  Car, 
-  Film, 
+import {
+  Navigation,
+  Phone,
+  MessageSquare,
+  Clock,
+  MapPin,
+  Car,
+  Film,
   Sparkles,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
 } from "lucide-react";
 
 export default function HomeContact() {
   const whatsappUrl = `https://wa.me/919447175232?text=${encodeURIComponent(
-    "Hello! I am planning a visit to S Mall Edakkara and would like to know more about the facilities, movies, and store hours."
+    "Hello! I am planning a visit to S Mall Edakkara and would like to know more about the facilities, movies, and store hours.",
   )}`;
 
   return (
-    <section id="plan-your-visit" className="py-20 sm:py-28 bg-[#0B2545] text-white relative overflow-hidden">
+    <section
+      id="plan-your-visit"
+      className="py-20 sm:py-28 bg-[#0B2545] text-white relative overflow-hidden"
+    >
       {/* Decorative ambient gradient */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0E5EC8]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F9B00C]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         {/* Main Card Wrapper */}
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 lg:p-16 backdrop-blur-md shadow-2xl">
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-10 lg:p-16 backdrop-blur-md shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              
               <div className="inline-flex items-center gap-2 bg-[#F9B00C]/20 border border-[#F9B00C]/40 text-[#F9B00C] px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Visit S Mall Edakkara</span>
@@ -47,44 +47,60 @@ export default function HomeContact() {
 
               {/* Exact Requested Supporting Text */}
               <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
-                Plan your visit to S Mall for shopping, entertainment, dining, and more.
+                Plan your visit to S Mall for shopping, entertainment, dining,
+                and more.
               </p>
 
               {/* Key Visitor Highlights Row */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="bg-white/5 border border-white/10 p-4 rounded-2xl">
                   <Clock className="w-5 h-5 text-[#F9B00C] mb-2" />
-                  <div className="text-xs text-slate-400 font-medium">Opening Hours</div>
-                  <div className="text-sm font-bold text-white mt-0.5">10:00 AM – 10:00 PM</div>
-                  <div className="text-[11px] text-slate-400">Open 7 Days a Week</div>
+                  <div className="text-xs text-slate-400 font-medium">
+                    Opening Hours
+                  </div>
+                  <div className="text-sm font-bold text-white mt-0.5">
+                    10:00 AM – 10:00 PM
+                  </div>
+                  <div className="text-[11px] text-slate-400">
+                    Open 7 Days a Week
+                  </div>
                 </div>
 
                 <div className="bg-white/5 border border-white/10 p-4 rounded-2xl">
                   <Car className="w-5 h-5 text-[#F9B00C] mb-2" />
-                  <div className="text-xs text-slate-400 font-medium">Visitor Parking</div>
-                  <div className="text-sm font-bold text-white mt-0.5">200+ Spaces</div>
-                  <div className="text-[11px] text-slate-400">Surface & Basement</div>
+                  <div className="text-xs text-slate-400 font-medium">
+                    Visitor Parking
+                  </div>
+                  <div className="text-sm font-bold text-white mt-0.5">
+                    100+ Spaces
+                  </div>
                 </div>
 
                 <div className="bg-white/5 border border-white/10 p-4 rounded-2xl">
                   <Film className="w-5 h-5 text-[#F9B00C] mb-2" />
-                  <div className="text-xs text-slate-400 font-medium">Entertainment</div>
-                  <div className="text-sm font-bold text-white mt-0.5">Magic Frames</div>
-                  <div className="text-[11px] text-slate-400">Multiplex Cinemas</div>
+                  <div className="text-xs text-slate-400 font-medium">
+                    Entertainment
+                  </div>
+                  <div className="text-sm font-bold text-white mt-0.5">
+                    Magic Frames
+                  </div>
+                  <div className="text-[11px] text-slate-400">
+                    Multiplex Cinemas
+                  </div>
                 </div>
               </div>
 
               {/* Address indicator */}
               <div className="flex items-center gap-2 text-xs text-slate-300 pt-1">
                 <MapPin className="w-4 h-4 text-[#F9B00C] shrink-0" />
-                <span>Main Road Edakkara, Malappuram District, Kerala — 679331</span>
+                <span>
+                  Main Road Edakkara, Malappuram District, Kerala — 679331
+                </span>
               </div>
-
             </div>
 
             {/* Right Action Card */}
-            <div className="lg:col-span-5 bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-              
+            <div className="lg:col-span-5 bg-white text-slate-900 rounded-3xl p-4 sm:p-8 shadow-2xl space-y-6">
               <div className="space-y-1.5">
                 <span className="text-[11px] font-black uppercase tracking-wider text-[#0E5EC8] block">
                   Visitor Assistance & Concierge
@@ -93,13 +109,13 @@ export default function HomeContact() {
                   Ready to Visit S Mall?
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 font-normal">
-                  Reach out directly, get instant driving directions, or chat with our team on WhatsApp.
+                  Reach out directly, get instant driving directions, or chat
+                  with our team on WhatsApp.
                 </p>
               </div>
 
               {/* The 3 Requested Buttons */}
               <div className="space-y-3 pt-1">
-                
                 {/* Button 1: Get Directions */}
                 <a
                   href="https://maps.google.com/?q=S+Mall+Main+Road+Edakkara+CNG+Road"
@@ -132,7 +148,6 @@ export default function HomeContact() {
                   <span>Contact Us</span>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-500 ml-1" />
                 </Link>
-
               </div>
 
               {/* Quick direct phone and email footer */}
@@ -147,12 +162,9 @@ export default function HomeContact() {
                   Edakkara, Kerala · Open Today Until 10:00 PM
                 </span>
               </div>
-
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

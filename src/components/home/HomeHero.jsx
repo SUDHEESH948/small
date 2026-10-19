@@ -79,18 +79,18 @@ export default function HomeHero() {
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-20 my-auto mx-auto w-full max-w-7xl px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
-        <div className="max-w-3xl space-y-6 sm:space-y-7">
+      <div className="relative z-20 my-auto mx-auto w-full max-w-7xl px-3 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
+        <div className="max-w-3xl space-y-5 sm:space-y-7">
           {/* Location Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex max-w-full flex-wrap items-center gap-2.5 rounded-full border border-white/40 bg-black/25 px-4 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-sm"
+            className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/40 bg-black/25 px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-lg backdrop-blur-sm"
           >
             <span className="flex h-2 w-2 shrink-0 animate-pulse rounded-full bg-[#F9B00C]" />
 
-            <span className="text-[11px] font-black uppercase tracking-wider text-[#F9B00C]">
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#F9B00C]">
               Edakkara's Landmark Mall
             </span>
 
@@ -106,7 +106,7 @@ export default function HomeHero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="space-y-2"
           >
-            <h1 className="text-4xl font-black leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] sm:text-6xl lg:text-7xl">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
               Discover More
               <br />
               <span className="text-[#F9B00C] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">

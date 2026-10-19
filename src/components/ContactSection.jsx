@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -243,22 +244,26 @@ export default function ContactSection() {
       {/* Contact Information Cards */}
       <div className="relative z-20 mx-auto -mt-12 max-w-7xl px-4 sm:-mt-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
-          {contactCards.map(({ title, icon: Icon, content }) => (
-            <div
+          {contactCards.map(({ title, icon: Icon, content }, idx) => (
+            <motion.div
               key={title}
-              className="space-y-3 rounded-2xl border border-blue-900/60 bg-[#0B2545] p-6 text-white shadow-xl transition-transform duration-300 hover:-translate-y-1 sm:p-7"
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-3 rounded-2xl border border-blue-900/60 bg-[#0B2545] hover:bg-[#0d2e54] hover:border-sky-400/50 p-6 text-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 sm:p-7 group cursor-default"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-500/15 text-sky-400">
-                <Icon className="h-5 w-5" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-500/15 text-sky-400 group-hover:bg-[#F9B00C] group-hover:text-slate-950 group-hover:border-[#F9B00C] transition-colors duration-300 shadow-xs">
+                <Icon className="h-5 w-5 transition-transform group-hover:scale-110 duration-300" />
               </div>
 
               <div>
-                <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-300 transition-colors">
                   {title}
                 </span>
                 <div className="mt-1">{content}</div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -268,7 +273,13 @@ export default function ContactSection() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
             {/* Contact Form */}
-            <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300 sm:p-10 lg:col-span-7"
+            >
               <div className="space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#0E5EC8]">
@@ -465,15 +476,21 @@ export default function ContactSection() {
                   <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Mall Interior Image */}
-            <div className="group relative min-h-[400px] overflow-hidden rounded-3xl border border-slate-200 shadow-lg lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative min-h-[400px] overflow-hidden rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 lg:col-span-5"
+            >
               <img
                 src={heroImage}
                 alt="S Mall Edakkara interior"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
 
@@ -489,7 +506,7 @@ export default function ContactSection() {
                   memorable experiences in Edakkara.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -532,8 +549,14 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2">
                 {/* Opening Hours */}
-                <div className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-5">
-                  <div className="flex items-center gap-2 font-bold text-slate-900">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45 }}
+                  className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 hover:bg-white hover:border-[#0E5EC8]/30 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 p-5 group cursor-default"
+                >
+                  <div className="flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                     <Clock className="h-4 w-4 text-[#0E5EC8]" />
                     <span>Opening Hours</span>
                   </div>
@@ -547,11 +570,17 @@ export default function ContactSection() {
                       Timings may vary for individual stores.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Parking */}
-                <div className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-5">
-                  <div className="flex items-center gap-2 font-bold text-slate-900">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: 0.08 }}
+                  className="space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 hover:bg-white hover:border-[#0E5EC8]/30 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 p-5 group cursor-default"
+                >
+                  <div className="flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
                     <Car className="h-4 w-4 text-[#0E5EC8]" />
                     <span>Parking Information</span>
                   </div>
@@ -562,11 +591,17 @@ export default function ContactSection() {
                     <p>• Highway access</p>
                     <p>• Convenient visitor access</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Additional Contact Details */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.12 }}
+                className="rounded-2xl border border-slate-200 bg-white hover:shadow-lg hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 p-5"
+              >
                 <h3 className="text-sm font-black text-slate-900">
                   Need additional assistance?
                 </h3>
@@ -599,11 +634,17 @@ export default function ContactSection() {
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Map Card */}
-            <div className="group relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-md lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-md hover:shadow-2xl hover:border-slate-300 transition-all duration-300 lg:col-span-6"
+            >
               <iframe
                 title="S Mall Edakkara location on Google Maps"
                 src="https://maps.google.com/maps?q=S%20Mall%20Main%20Road%20Edakkara&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -621,7 +662,7 @@ export default function ContactSection() {
                 Open in Google Maps
                 <ExternalLink className="h-3.5 w-3.5 text-[#F9B00C]" />
               </a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
