@@ -84,7 +84,7 @@ export default function BranchesPage() {
       name: "KFC",
       tagline: "Finger Lickin’ Good",
       category: "Dining",
-      image: "/images/dining.webp",
+      image: "/images/kfc.png",
       fallback: "/images/dining.webp",
       badge: "Dining",
     },
@@ -138,7 +138,7 @@ export default function BranchesPage() {
       name: "Supermarket (Coming Soon)",
       tagline: "Fresh Choices, Everyday Needs",
       category: "Shopping",
-      image: "/images/shopping-800.webp",
+      image: "/images/Supermarket.png",
       fallback: "/images/shopping-800.webp",
       badge: "Coming Soon",
     },
@@ -147,7 +147,7 @@ export default function BranchesPage() {
       name: "Gaming Zone (Coming Soon)",
       tagline: "Play, Connect, Enjoy",
       category: "Entertainment",
-      image: "/images/entertainment-800.webp",
+      image: "/images/GamingZone.png",
       fallback: "/images/entertainment-800.webp",
       badge: "Coming Soon",
     },
@@ -445,7 +445,11 @@ export default function BranchesPage() {
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.25), ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  duration: 0.45,
+                  delay: Math.min(index * 0.05, 0.25),
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#0E5EC8]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col will-change-transform cursor-pointer"
               >
                 <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
@@ -499,7 +503,8 @@ export default function BranchesPage() {
                   <Building2 className="w-5 h-5" />
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Mall Directory <span className="text-[#0E5EC8]">& Stores.</span>
+                  Mall Directory{" "}
+                  <span className="text-[#0E5EC8]">& Stores.</span>
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">

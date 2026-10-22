@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Crawl delay
+Crawl-delay: 1
+
+# Host
+Host: https://smallmalledakkara.com
+
+# Sitemaps
+Sitemap: https://smallmalledakkara.com/sitemap.xml

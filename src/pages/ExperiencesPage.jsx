@@ -168,7 +168,7 @@ export default function ExperiencesPage() {
             >
               <div className="w-full sm:w-1/2 aspect-16/10 sm:aspect-square overflow-hidden bg-slate-100">
                 <img
-                  src="/images/dining.webp"
+                  src="/images/kfc.png"
                   alt="KFC"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                 />
@@ -177,7 +177,9 @@ export default function ExperiencesPage() {
                 <span className="text-[10px] uppercase font-bold text-[#0E5EC8] tracking-wider block">
                   Fast Food & Chicken
                 </span>
-                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">KFC</h3>
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#0E5EC8] transition-colors">
+                  KFC
+                </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Great food for every mood. Fresh hot chicken and signature
                   treats.
