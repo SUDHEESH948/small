@@ -10,3 +10,4 @@ Host: https://smallmalledakkara.com
 
 # Sitemaps
 Sitemap: https://smallmalledakkara.com/sitemap.xml
+

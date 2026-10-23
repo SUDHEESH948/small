@@ -13,6 +13,7 @@ import {
   Armchair,
   Popcorn,
   Tv2,
+  Phone,
 } from "lucide-react";
 
 import magicFramesImg from "../assets/magicframes.jpeg";
@@ -99,9 +100,26 @@ export default function ExperiencesPage() {
                 <p className="text-sm text-slate-300">
                   Big Movies, Bigger Experiences.
                 </p>
+                <div className="flex items-center gap-2 pt-1 text-sm text-slate-200">
+                  <Phone className="w-4 h-4 text-[#F9B00C] shrink-0" />
+                  <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Contact:</span>
+                  <a
+                    href="tel:+917012036998"
+                    className="font-bold text-white hover:text-[#F9B00C] transition-colors"
+                  >
+                    +91 70120 36998
+                  </a>
+                </div>
               </div>
 
-              <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="tel:+917012036998"
+                  className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white px-5 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-xs transition-all active:scale-95"
+                >
+                  <Phone className="w-4 h-4 text-[#F9B00C]" />
+                  <span>Call: 7012036998</span>
+                </a>
                 <a
                   href="https://www.district.in/movies/magic-frames-cinemas-s-mall-edakkara-CD1088547?srsltid=AU7gw4ULPeA0teazNxAzOJ9bMmZ6q2MDw_2cf8jur613BYWOWrxFmuPI"
                   target="_blank"

@@ -75,6 +75,7 @@ export default function BranchesPage() {
       name: "Magic Frames Cinema",
       tagline: "Movies, More Than Movies",
       category: "Entertainment",
+      phone: "+91 70120 36998",
       image: magicFramesImg,
       fallback: "/images/magicframes.jpeg",
       badge: "Entertainment",
@@ -476,6 +477,18 @@ export default function BranchesPage() {
                     <p className="text-xs text-slate-500 mt-1">
                       {store.tagline}
                     </p>
+                    {store.phone && (
+                      <p className="text-xs font-bold text-slate-700 flex items-center gap-1.5 mt-2">
+                        <Phone className="w-3.5 h-3.5 text-[#0E5EC8]" />
+                        <a
+                          href={`tel:${store.phone.replace(/\s+/g, "")}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:text-[#0E5EC8] transition-colors"
+                        >
+                          {store.phone}
+                        </a>
+                      </p>
+                    )}
                   </div>
 
                   <div className="pt-2 flex items-center justify-between border-t border-slate-100">

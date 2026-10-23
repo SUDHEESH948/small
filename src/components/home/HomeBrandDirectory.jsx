@@ -12,6 +12,7 @@ import {
   Scissors,
   Gamepad2,
   ChevronRight,
+  Phone,
 } from "lucide-react";
 
 import magicFramesImg from "../../assets/magicframes.jpeg";
@@ -29,6 +30,7 @@ const STORES = [
     category: "Entertainment",
     floor: "Level 2",
     tagline: "Premier Multi-Screen Blockbuster Experience",
+    phone: "+91 70120 36998",
     image: magicFramesImg,
     fallback: "/images/magicframes.jpeg",
     badge: "Now Showing",
@@ -303,6 +305,17 @@ export default function HomeBrandDirectory() {
                     <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
                       {store.tagline}
                     </p>
+                    {store.phone && (
+                      <p className="text-xs font-bold text-slate-700 flex items-center gap-1.5 pt-1">
+                        <Phone className="w-3.5 h-3.5 text-[#0E5EC8]" />
+                        <a
+                          href={`tel:${store.phone.replace(/\s+/g, "")}`}
+                          className="hover:text-[#0E5EC8] transition-colors"
+                        >
+                          {store.phone}
+                        </a>
+                      </p>
+                    )}
                   </div>
                 </div>
 
